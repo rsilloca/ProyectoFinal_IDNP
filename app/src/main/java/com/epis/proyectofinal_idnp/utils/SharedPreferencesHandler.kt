@@ -48,17 +48,17 @@ class SharedPreferencesHandler(context: Context) {
     }
 
     // SETTERS
-    private fun setUserToken(token: String) {
+    fun setUserToken(token: String) {
         editPreferences.putString(activity.getString(R.string.user_token_key), token)
         editPreferences.commit()
     }
 
-    private fun setDepartment(departmentId: Int) {
+    fun setDepartment(departmentId: Int) {
         editPreferences.putInt(activity.getString(R.string.department_key), departmentId)
         editPreferences.commit()
     }
 
-    private fun setProvince(provinceId: Int) {
+    fun setProvince(provinceId: Int) {
         editPreferences.putInt(activity.getString(R.string.province_key), provinceId)
         editPreferences.commit()
     }
