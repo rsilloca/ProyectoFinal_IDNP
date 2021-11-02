@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ProyectoFinal_IDNP</string>
+    <string name="app_name">UbicunatePeru</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -10,4 +10,17 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+
+    <!-- CONSTANTS -->
+
+    <string name="preferences_file_key">UbicunatePeru_Preferences</string>
+    <string name="user_token_key">UbicunatePeru_UserToken</string>
+    <string name="department_key">UbicunatePeru_Department</string>
+    <string name="province_key">UbicunatePeru_Province</string>
+    <string name="label_location_key">UbicunatePeru_LabelLocation</string>
+    <string name="latitude_key">UbicunatePeru_Latitude</string>
+    <string name="longitude_key">UbicunatePeru_Longitude</string>
+
+    <!-- END CONSTANTS -->
+
 </resources>
