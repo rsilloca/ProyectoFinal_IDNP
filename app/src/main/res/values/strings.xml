@@ -1,15 +1,25 @@
 <resources>
-    <string name="app_name">UbicunatePeru</string>
+    <string name="app_name">Ubicúnate Perú</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_subtitle">android@studio.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Home</string>
+    <!-- MENU -->
+
+    <string name="menu_home">Inicio</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_location">Puntos de vacunación</string>
+    <string name="menu_reminder">Agregar recordatorio</string>
+    <string name="menu_statistics">Ver estadísticas</string>
+    <string name="menu_favorites">Puntos favoritos</string>
+    <string name="menu_profile">Mi Perfil</string>
+    <string name="menu_logout">Cerrar sesión</string>
+
+    <!-- END MENU -->
 
     <!-- CONSTANTS -->
 
@@ -22,5 +32,39 @@
     <string name="longitude_key">UbicunatePeru_Longitude</string>
 
     <!-- END CONSTANTS -->
+
+
+
+    <!-- LABELS -->
+
+    <!-- LOGIN -->
+
+    <string name="title_login">¡Encuentra tu punto de vacunación!</string>
+
+    <string name="email_input_label">Correo electrónico</string>
+    <string name="pwd_input_label">Contraseña</string>
+    <string name="forgot_pwd_label">¿Olvidaste tu contraseña?</string>
+
+    <string name="register_label">¿No tienes una cuenta?</string>
+
+    <string name="log_login_btn">INICIAR SESIÓN</string>
+    <string name="log_register_btn">REGÍSTRATE</string>
+    <string name="free_access_btn">CONTINUAR SIN REGISTRO</string>
+
+    <!-- REGISTER -->
+
+    <string name="name_input_label">Nombres y Apellidos</string>
+    <string name="phone_input_label">Teléfono celular</string>
+
+    <string name="login_label">¿Ya tienes una cuenta?</string>
+
+    <string name="reg_login_btn">INICIA SESIÓN</string>
+    <string name="reg_register_btn">REGISTRARSE</string>
+    
+    <!-- HOME -->
+    
+    <string name="title_home_toolbar">¡Buenos días!</string>
+
+    <!-- END LABELS -->
 
 </resources>

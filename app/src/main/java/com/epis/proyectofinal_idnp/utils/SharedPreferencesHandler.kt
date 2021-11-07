@@ -4,7 +4,7 @@ import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
 import com.epis.proyectofinal_idnp.R
-import com.epis.proyectofinal_idnp.models.UserLocation
+import com.epis.proyectofinal_idnp.data.model.UserLocation
 
 class SharedPreferencesHandler(context: Context) {
 

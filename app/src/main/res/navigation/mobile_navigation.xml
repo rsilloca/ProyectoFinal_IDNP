@@ -7,19 +7,38 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.epis.proyectofinal_idnp.ui.home.HomeFragment"
+        android:name="com.epis.proyectofinal_idnp.ui.fragment.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.epis.proyectofinal_idnp.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_vaccination_locations"
+        android:name="com.epis.proyectofinal_idnp.ui.fragment.vaccination_locations.VaccinationLocationsFragment"
+        android:label="@string/menu_location"
+        tools:layout="@layout/fragment_vaccination_locations" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.epis.proyectofinal_idnp.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_reminder"
+        android:name="com.epis.proyectofinal_idnp.ui.fragment.reminder.ReminderFragment"
+        android:label="@string/menu_reminder"
+        tools:layout="@layout/fragment_reminder" />
+
+    <fragment
+        android:id="@+id/nav_statistics"
+        android:name="com.epis.proyectofinal_idnp.ui.fragment.statistics.StatisticsFragment"
+        android:label="@string/menu_statistics"
+        tools:layout="@layout/fragment_statistics" />
+
+    <fragment
+        android:id="@+id/nav_favorites"
+        android:name="com.epis.proyectofinal_idnp.ui.fragment.favorites.FavoritesFragment"
+        android:label="@string/menu_favorites"
+        tools:layout="@layout/fragment_favorites" />
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.epis.proyectofinal_idnp.ui.fragment.profile.ProfileFragment"
+        android:label="@string/menu_profile"
+        tools:layout="@layout/fragment_profile" />
+
 </navigation>

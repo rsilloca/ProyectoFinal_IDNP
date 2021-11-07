@@ -2,13 +2,13 @@
     <!-- Base application theme. -->
     <style name="Theme.ProyectoFinal_IDNP" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/purple_200</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondary">@color/secondary</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnSecondary">@color/white</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
@@ -22,4 +22,62 @@
     <style name="Theme.ProyectoFinal_IDNP.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.ProyectoFinal_IDNP.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!-- CUSTOM STYLES -->
+
+    <!-- TEXT STYLES -->
+
+    <style name="ubicunate_bold_primary_label">
+        <item name="android:textColor">@color/primary</item>
+        <item name="fontFamily">@font/nunito_extra_bold</item>
+    </style>
+
+    <style name="ubicunate_title_fragment">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">30dp</item>
+        <item name="android:fontFamily">@font/nunito_extra_bold</item>
+    </style>
+
+    <!-- INPUT STYLES -->
+
+    <style name="ubicunate_outline_primary_input">
+        <item name="android:background">@drawable/bg_outline_primary</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="fontFamily">@font/nunito_bold</item>
+        <item name="android:textSize">14dp</item>
+    </style>
+
+    <!-- BUTTON STYLES -->
+
+    <style name="ubicunate_secondary_button">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="drawableTint">@color/white</item>
+        <item name="android:background">@color/secondary</item>
+        <item name="fontFamily">@font/nunito_extra_bold</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+    </style>
+
+    <style name="ubicunate_flat_primary_button">
+        <item name="android:backgroundTint">@color/primary</item>
+        <item name="cornerRadius">20dp</item>
+        <item name="fontFamily">@font/nunito_extra_bold</item>
+        <item name="android:textSize">16dp</item>
+    </style>
+
+    <style name="ubicunate_stroked_primary_button">
+        <item name="android:backgroundTint">@android:color/white</item>
+        <item name="android:textColor">@color/primary</item>
+        <item name="cornerRadius">20dp</item>
+        <item name="fontFamily">@font/nunito_extra_bold</item>
+        <item name="android:textSize">16dp</item>
+        <item name="strokeColor">@color/primary</item>
+        <item name="strokeWidth">2dp</item>
+    </style>
+
+    <!-- END CUSTOM STYLES -->
+
 </resources>
