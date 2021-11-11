@@ -3,6 +3,29 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidProjects/ProyectoFinal_IDNP/app/src/main/res/drawable/ic_bg_circle_image_toolbar.xml" value="0.225" />
+        <entry key="..\:/AndroidProjects/ProyectoFinal_IDNP/app/src/main/res/drawable/ic_email.xml" value="0.1" />
+        <entry key="..\:/AndroidProjects/ProyectoFinal_IDNP/app/src/main/res/drawable/ic_main_toolbar_rounded_primary.xml" value="0.225" />
+        <entry key="..\:/AndroidProjects/ProyectoFinal_IDNP/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.225" />
+        <entry key="..\:/AndroidProjects/ProyectoFinal_IDNP/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.225" />
+        <entry key="..\:/AndroidProjects/ProyectoFinal_IDNP/app/src/main/res/drawable/ic_my_location.xml" value="0.225" />
+        <entry key="..\:/AndroidProjects/ProyectoFinal_IDNP/app/src/main/res/drawable/ic_person.xml" value="0.225" />
+        <entry key="..\:/AndroidProjects/ProyectoFinal_IDNP/app/src/main/res/drawable/ic_phone_android.xml" value="0.225" />
+        <entry key="..\:/AndroidProjects/ProyectoFinal_IDNP/app/src/main/res/drawable/ic_visibility.xml" value="0.225" />
+        <entry key="..\:/AndroidProjects/ProyectoFinal_IDNP/app/src/main/res/layout/activity_authentication.xml" value="0.2164855072463768" />
+        <entry key="..\:/AndroidProjects/ProyectoFinal_IDNP/app/src/main/res/layout/activity_main.xml" value="0.16077898550724637" />
+        <entry key="..\:/AndroidProjects/ProyectoFinal_IDNP/app/src/main/res/layout/app_bar_main.xml" value="0.2164855072463768" />
+        <entry key="..\:/AndroidProjects/ProyectoFinal_IDNP/app/src/main/res/layout/content_main.xml" value="0.2164855072463768" />
+        <entry key="..\:/AndroidProjects/ProyectoFinal_IDNP/app/src/main/res/layout/fragment_home.xml" value="0.2164855072463768" />
+        <entry key="..\:/AndroidProjects/ProyectoFinal_IDNP/app/src/main/res/layout/fragment_login.xml" value="0.16077898550724637" />
+        <entry key="..\:/AndroidProjects/ProyectoFinal_IDNP/app/src/main/res/layout/fragment_profile.xml" value="0.16077898550724637" />
+        <entry key="..\:/AndroidProjects/ProyectoFinal_IDNP/app/src/main/res/layout/fragment_register.xml" value="0.16077898550724637" />
+        <entry key="..\:/AndroidProjects/ProyectoFinal_IDNP/app/src/main/res/layout/fragment_reminder.xml" value="0.16077898550724637" />
+        <entry key="..\:/AndroidProjects/ProyectoFinal_IDNP/app/src/main/res/layout/fragment_statistics.xml" value="0.16077898550724637" />
+        <entry key="..\:/AndroidProjects/ProyectoFinal_IDNP/app/src/main/res/layout/fragment_vaccination_locations.xml" value="0.16077898550724637" />
+        <entry key="..\:/AndroidProjects/ProyectoFinal_IDNP/app/src/main/res/layout/nav_header_main.xml" value="0.16077898550724637" />
+        <entry key="..\:/AndroidProjects/ProyectoFinal_IDNP/app/src/main/res/menu/activity_main_drawer.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidProjects/ProyectoFinal_IDNP/app/src/main/res/menu/main.xml" value="0.25416666666666665" />
         <entry key="..\:/Proyects/Android/ProyectoFinal_IDNP/app/src/main/res/drawable/auth_bg_top.xml" value="0.1265625" />
         <entry key="..\:/Proyects/Android/ProyectoFinal_IDNP/app/src/main/res/drawable/bg_flat_primary.xml" value="0.24114583333333334" />
         <entry key="..\:/Proyects/Android/ProyectoFinal_IDNP/app/src/main/res/drawable/bg_stroked_primary.xml" value="0.24114583333333334" />
