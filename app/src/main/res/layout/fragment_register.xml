@@ -6,14 +6,9 @@
     tools:context=".ui.fragment.register.RegisterFragment">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-4dp"
-        android:src="@drawable/ic_auth_bg_top"/>
-
-    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:scaleType="fitStart"
         android:layout_marginTop="190dp"
         android:src="@drawable/ic_auth_bg_left"/>
 
@@ -25,7 +20,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginTop="180dp">
+            android:paddingTop="180dp"
+            android:paddingBottom="60dp">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -148,6 +144,13 @@
         </LinearLayout>
 
     </ScrollView>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitStart"
+        android:layout_marginTop="-4dp"
+        android:src="@drawable/ic_auth_bg_top"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/reg_btn_free_access"
