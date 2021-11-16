@@ -3,12 +3,10 @@ package com.epis.proyectofinal_idnp.ui.activity.auth
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import com.epis.proyectofinal_idnp.R
 import com.epis.proyectofinal_idnp.databinding.ActivityAuthenticationBinding
-import com.epis.proyectofinal_idnp.databinding.ActivityMainBinding
 import com.epis.proyectofinal_idnp.ui.activity.main.MainActivity
 import com.epis.proyectofinal_idnp.ui.fragment.login.LoginFragment
 import com.epis.proyectofinal_idnp.ui.fragment.register.RegisterFragment

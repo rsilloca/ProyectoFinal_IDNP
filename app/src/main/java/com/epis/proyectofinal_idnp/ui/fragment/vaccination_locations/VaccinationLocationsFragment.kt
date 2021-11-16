@@ -1,21 +1,15 @@
 package com.epis.proyectofinal_idnp.ui.fragment.vaccination_locations
 
-import android.R.attr
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.epis.proyectofinal_idnp.data.model.VaccinationLocation
 import com.epis.proyectofinal_idnp.databinding.FragmentVaccinationLocationsBinding
 import com.epis.proyectofinal_idnp.ui.adapter.VaccinationLocationAdapter
-import android.R.attr.numColumns
-
-
 
 
 class VaccinationLocationsFragment : Fragment() {

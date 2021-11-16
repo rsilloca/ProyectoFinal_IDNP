@@ -12,9 +12,6 @@ import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
-
-
-
 class SelectLocationFragment : Fragment(), OnMapReadyCallback {
 
     companion object {
@@ -66,8 +63,8 @@ class SelectLocationFragment : Fragment(), OnMapReadyCallback {
         }
     }
 
-    override fun onMapReady(_googleMap: GoogleMap?) {
-        MapsInitializer.initialize(context)
+    override fun onMapReady(_googleMap: GoogleMap) {
+        context?.let { MapsInitializer.initialize(it) }
         if (_googleMap != null) {
             googleMap = _googleMap
             googleMap.mapType = GoogleMap.MAP_TYPE_NORMAL
