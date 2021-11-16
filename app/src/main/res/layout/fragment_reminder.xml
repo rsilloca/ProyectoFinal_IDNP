@@ -7,6 +7,58 @@
     android:background="@color/white"
     tools:context=".ui.fragment.reminder.ReminderFragment">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="190dp"
+            android:paddingBottom="40dp">
+
+            <EditText
+                android:id="@+id/select_date"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginBottom="8dp"
+                android:inputType="date"
+                android:hint="Día (dd/mm/aaaa)"
+                android:drawableStart="@drawable/ic_event"
+                android:drawablePadding="16dp"
+                style="@style/ubicunate_outline_primary_input"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:textAlignment="center"
+                android:text="Hora Aproximada"
+                android:fontFamily="@font/nunito_extra_bold"
+                android:textColor="@color/primary"/>
+
+            <TimePicker
+                android:id="@+id/picker_hour"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:timePickerMode="spinner"
+                style="@color/primary"/>
+
+            <Button
+                android:id="@+id/act_btn_reminder"
+                android:layout_width="280dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:text="AGREGAR RECORDATORIO"
+                style="@style/ubicunate_flat_primary_button"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
