@@ -34,7 +34,7 @@
 
     <style name="ubicunate_title_fragment">
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">30dp</item>
+        <item name="android:textSize">24dp</item>
         <item name="android:fontFamily">@font/nunito_extra_bold</item>
     </style>
 
@@ -63,7 +63,7 @@
 
     <style name="ubicunate_flat_primary_button">
         <item name="android:backgroundTint">@color/primary</item>
-        <item name="cornerRadius">20dp</item>
+        <item name="cornerRadius">50dp</item>
         <item name="fontFamily">@font/nunito_extra_bold</item>
         <item name="android:textSize">16dp</item>
     </style>

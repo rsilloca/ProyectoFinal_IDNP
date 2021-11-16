@@ -3,7 +3,6 @@ package com.epis.proyectofinal_idnp.ui.activity.main
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -13,9 +12,13 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.get
+import androidx.fragment.app.commit
+import androidx.fragment.app.replace
 import com.epis.proyectofinal_idnp.R
 import com.epis.proyectofinal_idnp.databinding.ActivityMainBinding
 import com.epis.proyectofinal_idnp.ui.activity.auth.AuthenticationActivity
+import com.epis.proyectofinal_idnp.ui.fragment.select_department.SelectDepartmentFragment
+import com.epis.proyectofinal_idnp.ui.fragment.select_location.SelectLocationFragment
 import com.epis.proyectofinal_idnp.utils.SharedPreferencesHandler
 
 class MainActivity : AppCompatActivity() {
@@ -68,10 +71,26 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
-    fun logout() {
+    private fun logout() {
         preferences.setUserToken("")
         val authIntent = Intent(this, AuthenticationActivity::class.java)
         startActivity(authIntent)
+    }
+
+    fun goSelectDepartment() {
+        supportFragmentManager.commit {
+            replace<SelectDepartmentFragment>(R.id.nav_host_fragment_content_main)
+            setReorderingAllowed(true)
+            addToBackStack("SelectDepartment")
+        }
+    }
+
+    fun goSelectLocation() {
+        supportFragmentManager.commit {
+            replace<SelectLocationFragment>(R.id.nav_host_fragment_content_main)
+            setReorderingAllowed(true)
+            addToBackStack("SelectLocation")
+        }
     }
 
 }

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.fragment.select_department.SelectDepartmentFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="160dp"
+            android:paddingBottom="40dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/autocomplete_department"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginBottom="8dp"
+                android:hint="Departamento"
+                android:drawableEnd="@drawable/ic_arrow_drop_down"
+                style="@style/ubicunate_outline_primary_input"/>
+
+            <AutoCompleteTextView
+                android:id="@+id/autocomplete_province"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginHorizontal="32dp"
+                android:hint="Provincia"
+                android:drawableEnd="@drawable/ic_arrow_drop_down"
+                style="@style/ubicunate_outline_primary_input"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/main_image_select_department"
+                android:layout_marginBottom="8dp"/>
+
+            <Button
+                android:id="@+id/next_select_department"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:text="SIGUIENTE"
+                style="@style/ubicunate_flat_primary_button"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="fitEnd"
+            android:layout_marginTop="-80dp"
+            android:src="@drawable/ic_main_toolbar_rounded_primary"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Comencemos"
+                style="@style/ubicunate_title_fragment"/>
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textAlignment="center"
+                android:text="Selecciona el Departamento y Provincia donde vives"
+                android:fontFamily="@font/nunito"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="32dp">
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginRight="4dp"
+            android:background="@drawable/bg_cicle_primary"/>
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:backgroundTint="#C4C4C4"
+            android:background="@drawable/bg_cicle_primary"/>
+
+    </LinearLayout>
+
+</FrameLayout>

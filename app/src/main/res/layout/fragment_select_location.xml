@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragment.select_location.SelectLocationFragment">
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/map_select_location"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="fitEnd"
+            android:layout_marginTop="-80dp"
+            android:src="@drawable/ic_main_toolbar_rounded_primary"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="¡Ya casi terminamos!"
+                style="@style/ubicunate_title_fragment"/>
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textAlignment="center"
+                android:text="Confirma tu ubicación y asígnale un nombre (Ejemplo: Casa, Trabajo, etc.)"
+                android:fontFamily="@font/nunito"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="bottom"
+        android:background="@drawable/bg_rounded_top"
+        android:paddingTop="24dp"
+        android:paddingBottom="32dp">
+
+        <EditText
+            android:id="@+id/autocomplete_department"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginBottom="8dp"
+            android:hint="Casa, trabajo..."
+            android:drawableStart="@drawable/ic_location_on"
+            android:drawablePadding="16dp"
+            style="@style/ubicunate_outline_primary_input"/>
+
+        <Button
+            android:id="@+id/next_select_department"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginBottom="16dp"
+            android:text="TERMINAR"
+            style="@style/ubicunate_flat_primary_button"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal">
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:backgroundTint="#C4C4C4"
+                android:layout_marginRight="4dp"
+                android:background="@drawable/bg_cicle_primary"/>
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/bg_cicle_primary"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".ui.fragment.home.HomeFragment">
 
     <ScrollView
@@ -14,15 +14,58 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="192dp"
+            android:paddingBottom="40dp">
 
             <TextView
-                android:id="@+id/text_home"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
-                android:textSize="20sp" />
+                android:text="Hoy se vacunarán"
+                android:fontFamily="@font/nunito_extra_bold"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="720"
+                android:fontFamily="@font/nunito_extra_bold"
+                android:textColor="@color/secondary"
+                android:textSize="72dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="personas"
+                android:fontFamily="@font/nunito_extra_bold"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:textAlignment="center"
+                android:text="Y tú, ¿ya te vacunaste?"
+                android:fontFamily="@font/nunito_extra_bold"
+                android:textColor="@color/primary"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="32dp"
+                android:textAlignment="center"
+                android:text="Te ayudaremos a encontrar puntos de vacunación cerca de tu ubicación"
+                android:fontFamily="@font/nunito"/>
+
+            <Button
+                android:id="@+id/see_more_home"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:text="VER MÁS"
+                style="@style/ubicunate_flat_primary_button"/>
 
         </LinearLayout>
 
@@ -35,7 +78,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:scaleType="fitXY"
+            android:scaleType="fitEnd"
             android:layout_marginTop="-80dp"
             android:src="@drawable/ic_main_toolbar_rounded_primary"/>
 
@@ -62,6 +105,5 @@
             android:src="@drawable/image_toolbar_home"/>
 
     </FrameLayout>
-
 
 </FrameLayout>

@@ -14,7 +14,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginTop="180dp">
+            android:paddingTop="180dp"
+            android:paddingBottom="40dp">
 
             <EditText
                 android:id="@+id/input_name_profile"
@@ -149,7 +150,8 @@
             <Button
                 android:id="@+id/ac_btn_new_password"
                 android:layout_width="250dp"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
+                android:minHeight="50dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="16dp"
                 android:text="CAMBIAR CONTRASEÑA"
@@ -166,7 +168,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:scaleType="fitXY"
+            android:scaleType="fitEnd"
             android:layout_marginTop="-80dp"
             android:src="@drawable/ic_main_toolbar_rounded_primary"/>
 
