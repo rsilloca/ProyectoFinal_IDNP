@@ -1,5 +1,6 @@
 package com.epis.proyectofinal_idnp.data.model
 
+import android.widget.EditText
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 

@@ -3,15 +3,20 @@ package com.epis.proyectofinal_idnp.ui.fragment.register
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.text.InputType
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
-import android.widget.TextView
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import com.epis.proyectofinal_idnp.data.application.VaccinationApplication
+import com.epis.proyectofinal_idnp.data.model.User
 import com.epis.proyectofinal_idnp.databinding.FragmentRegisterBinding
 import com.epis.proyectofinal_idnp.ui.activity.auth.AuthenticationActivity
+import com.epis.proyectofinal_idnp.viewmodel.UserViewModel
+import com.epis.proyectofinal_idnp.viewmodel.UserViewModelFactory
 
 class RegisterFragment : Fragment() {
 
@@ -36,7 +41,17 @@ class RegisterFragment : Fragment() {
 
         val registerBtn = binding.regBtnRegister
         registerBtn.setOnClickListener {
-            (activity as AuthenticationActivity).register()
+            val user: User = User(
+                id = 0,
+                fullName = binding.inputNameRegister.text.toString(),
+                phoneNumber = binding.inputPhoneRegister.text.toString(),
+                email = binding.inputEmailRegister.text.toString(),
+                password = binding.inputPwdRegister.text.toString(),
+                vaccinationDate = null,
+                typeVaccine = null
+            )
+
+            (activity as AuthenticationActivity).register(user)
         }
 
         val loginBtn = binding.regBtnLogin
