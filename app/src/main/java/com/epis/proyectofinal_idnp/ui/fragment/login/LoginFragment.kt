@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import com.epis.proyectofinal_idnp.databinding.FragmentLoginBinding
 import com.epis.proyectofinal_idnp.ui.activity.auth.AuthenticationActivity
@@ -36,7 +37,17 @@ class LoginFragment : Fragment() {
 
         val loginBtn = binding.logBtnLogin
         loginBtn.setOnClickListener {
-            (activity as AuthenticationActivity).login()
+
+            val email = binding.inputEmailLogin.text.toString()
+            val password = binding.inputPwdLogin.text.toString()
+            when {
+                email.isEmpty() || password.isEmpty() ->{
+                    Toast.makeText(context, "EMPTY FIELDS", Toast.LENGTH_SHORT).show()
+                }
+                else -> {
+                    (activity as AuthenticationActivity).login(email, password)
+                }
+            }
         }
 
         val registerBtn = binding.logBtnRegister
@@ -46,7 +57,7 @@ class LoginFragment : Fragment() {
 
         val freeAccessBtn = binding.logBtnFreeAccess
         freeAccessBtn.setOnClickListener {
-            (activity as AuthenticationActivity).login()
+            (activity as AuthenticationActivity).login("invitado@invitado.com", "invitado")
         }
 
         val toggleVisiblePwd = binding.logBtnVisibility

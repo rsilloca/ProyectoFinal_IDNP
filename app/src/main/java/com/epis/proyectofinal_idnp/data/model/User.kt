@@ -1,6 +1,5 @@
 package com.epis.proyectofinal_idnp.data.model
 
-import android.widget.EditText
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -8,10 +7,10 @@ import androidx.room.PrimaryKey
 data class User(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
-    var fullName: String?,
-    var phoneNumber: String?,
-    var email: String?,
-    var password: String?,
+    var fullName: String,
+    var phoneNumber: String,
+    var email: String,
+    var password: String,
     var vaccinationDate: String?,
     var typeVaccine: String?
 ) {

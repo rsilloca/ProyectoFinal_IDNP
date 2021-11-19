@@ -9,14 +9,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import com.epis.proyectofinal_idnp.data.application.VaccinationApplication
 import com.epis.proyectofinal_idnp.data.model.User
 import com.epis.proyectofinal_idnp.databinding.FragmentRegisterBinding
 import com.epis.proyectofinal_idnp.ui.activity.auth.AuthenticationActivity
 import com.epis.proyectofinal_idnp.viewmodel.UserViewModel
 import com.epis.proyectofinal_idnp.viewmodel.UserViewModelFactory
+import java.util.*
 
 class RegisterFragment : Fragment() {
 
@@ -51,7 +50,9 @@ class RegisterFragment : Fragment() {
                 typeVaccine = null
             )
 
-            (activity as AuthenticationActivity).register(user)
+            (activity as AuthenticationActivity).register(user,
+                binding.inputEmailRegister.text.toString(),
+                binding.inputPwdRegister.text.toString())
         }
 
         val loginBtn = binding.regBtnLogin
@@ -61,7 +62,7 @@ class RegisterFragment : Fragment() {
 
         val freeAccessBtn = binding.regBtnFreeAccess
         freeAccessBtn.setOnClickListener {
-            (activity as AuthenticationActivity).login()
+            (activity as AuthenticationActivity).login("", "")
         }
 
         val toggleVisiblePwd = binding.regBtnVisibility

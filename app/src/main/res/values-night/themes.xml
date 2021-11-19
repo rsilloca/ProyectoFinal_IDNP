@@ -16,6 +16,28 @@
 
     <!-- CUSTOM STYLES -->
 
+    <!-- BACKGROUND STYLES -->
+
+    <style name="bg_fragment">
+        <item name="android:background">@color/black</item>
+    </style>
+
+    <style name="bg_rounded">
+        <item name="android:background">@drawable/bg_rounded_top_dark</item>
+    </style>
+
+    <!-- INPUT STYLES -->
+
+    <style name="ubicunate_outline_primary_input">
+        <item name="android:background">@drawable/bg_outline_primary_dark</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="fontFamily">@font/nunito_bold</item>
+        <item name="android:textSize">14dp</item>
+    </style>
+
+    <!-- BUTTON STYLES -->
+
     <style name="ubicunate_stroked_primary_button">
         <item name="android:backgroundTint">@android:color/transparent</item>
         <item name="android:textColor">@color/primary</item>
