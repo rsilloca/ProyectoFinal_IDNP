@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    style="@style/bg_fragment"
     tools:context=".ui.fragment.select_location.SelectLocationFragment">
 
     <com.google.android.gms.maps.MapView
@@ -52,9 +53,9 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_gravity="bottom"
-        android:background="@drawable/bg_rounded_top"
         android:paddingTop="24dp"
-        android:paddingBottom="32dp">
+        android:paddingBottom="32dp"
+        style="@style/bg_rounded">
 
         <EditText
             android:id="@+id/autocomplete_department"
