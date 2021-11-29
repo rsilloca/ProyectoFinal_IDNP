@@ -14,25 +14,36 @@ import androidx.recyclerview.widget.RecyclerView
 import com.epis.proyectofinal_idnp.R
 import com.epis.proyectofinal_idnp.data.model.VaccinationLocation
 
-class VaccinationLocationAdapter(private val locations: List<VaccinationLocation>) : RecyclerView.Adapter<VaccinationLocationAdapter.ViewHolder>() {
+class VaccinationLocationAdapter(
+    private val locations: List<VaccinationLocation>,
+    private val clickListener: (VaccinationLocation) -> Unit
+) : RecyclerView.Adapter<VaccinationLocationAdapter.ViewHolder>() {
 
     private val colorGreen: Int = Color.rgb(153, 193, 185)
     private val colorOrange: Int = Color.rgb( 242, 208, 169)
     private val colorRed: Int = Color.rgb(216, 140, 154)
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View, clickAtPosition: (Int) -> Unit) : RecyclerView.ViewHolder(itemView) {
         val date: TextView = itemView.findViewById(R.id.date_card)
         val title: TextView = itemView.findViewById(R.id.title_card)
         val subtitle: TextView = itemView.findViewById(R.id.subtitle_card)
         val icon: ImageButton = itemView.findViewById(R.id.icon_card)
         val cardContent: RelativeLayout = itemView.findViewById(R.id.card_content)
+
+        init {
+            itemView.setOnClickListener {
+                clickAtPosition(adapterPosition)
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val context = parent.context
         val inflater = LayoutInflater.from(context)
         val vaccinationLocationView = inflater.inflate(R.layout.item_vaccination_location, parent, false)
-        return ViewHolder(vaccinationLocationView)
+        return ViewHolder(vaccinationLocationView) {
+            clickListener(locations[it])
+        }
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -65,6 +76,9 @@ class VaccinationLocationAdapter(private val locations: List<VaccinationLocation
         title.setTextColor(colorSelected)
         subtitle.setTextColor(colorSelected)
         icon.setColorFilter(colorSelected)
+        icon.setOnClickListener {
+            clickListener(locations[position])
+        }
     }
 
     override fun getItemCount(): Int {
