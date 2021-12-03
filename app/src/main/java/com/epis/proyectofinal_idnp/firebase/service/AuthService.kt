@@ -25,4 +25,8 @@ object AuthService {
         return firebaseAuth.createUserWithEmailAndPassword(email, password)
     }
 
+    fun firebaseSingInAnonymously(): Task<AuthResult>{
+        return firebaseAuth.signInAnonymously()
+    }
+
 }

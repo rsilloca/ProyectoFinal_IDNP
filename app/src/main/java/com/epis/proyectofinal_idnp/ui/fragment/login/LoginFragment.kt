@@ -57,7 +57,7 @@ class LoginFragment : Fragment() {
 
         val freeAccessBtn = binding.logBtnFreeAccess
         freeAccessBtn.setOnClickListener {
-            (activity as AuthenticationActivity).login("invitado@invitado.com", "invitado")
+            (activity as AuthenticationActivity).loginAnonymus()
         }
 
         val toggleVisiblePwd = binding.logBtnVisibility

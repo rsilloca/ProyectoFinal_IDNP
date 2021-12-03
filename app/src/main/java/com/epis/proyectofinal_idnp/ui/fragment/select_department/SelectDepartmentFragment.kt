@@ -1,19 +1,21 @@
 package com.epis.proyectofinal_idnp.ui.fragment.select_department
 
+import android.R
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.epis.proyectofinal_idnp.R
-import com.epis.proyectofinal_idnp.databinding.FragmentHomeBinding
+import android.widget.ArrayAdapter
 import com.epis.proyectofinal_idnp.databinding.FragmentSelectDepartmentBinding
+import com.epis.proyectofinal_idnp.firebase.model.Department
+import com.epis.proyectofinal_idnp.firebase.model.Province
+//import com.epis.proyectofinal_idnp.firebase.model.GenericDP
 import com.epis.proyectofinal_idnp.ui.activity.main.MainActivity
-import com.epis.proyectofinal_idnp.ui.fragment.home.HomeViewModel
 
 class SelectDepartmentFragment : Fragment() {
-
     private lateinit var selectDepartmentViewModel: SelectDepartmentViewModel
     private var _binding: FragmentSelectDepartmentBinding? = null
 
@@ -39,7 +41,49 @@ class SelectDepartmentFragment : Fragment() {
         selectDepartmentBtn.setOnClickListener {
             (activity as MainActivity).goSelectLocation()
         }
+
+        autoCompleteDep(inflater)
+
+        binding.autocompleteDepartment.setOnItemClickListener{ parent, view, position, id ->
+            val selectedItem = parent.getItemAtPosition(position) as Department
+            binding.autocompleteDepartment.setText(selectedItem.departamento)
+            autoCompletePro(inflater, selectedItem)
+        }
+
+        binding.autocompleteProvince.setOnItemClickListener{parent, view, position, id ->
+            val selectedItem = parent.getItemAtPosition(position) as Province
+            binding.autocompleteProvince.setText(selectedItem.provincia)
+        }
+
         return root
     }
 
+    private fun autoCompleteDep(inflater: LayoutInflater){
+        val departmentList = mutableListOf<Department>()
+        val department = selectDepartmentViewModel
+        department.getAllDepartmentListLiveData()?.observe(viewLifecycleOwner, { departments ->
+            departments?.forEach{
+                departmentList += it
+            }
+        })
+        val departmentAdapter = DepartmentListAdapter(inflater.context, departmentList)
+        binding.autocompleteDepartment.setAdapter(departmentAdapter)
+
+    }
+
+    private fun autoCompletePro(inflater: LayoutInflater, department:Department){
+        binding.autocompleteProvince.setAdapter(null)
+        val provinceList = mutableListOf<Province>()
+        val province = selectDepartmentViewModel
+
+        province.getAllProvinceListLiveData(department.id_departamento)?.observe(
+            viewLifecycleOwner, { provinces ->
+                provinces?.forEach{
+                    provinceList += it
+                }
+            }
+        )
+        val provinceAdapter = ProvinceListAdapter(inflater.context, provinceList)
+        binding.autocompleteProvince.setAdapter(provinceAdapter)
+    }
 }
