@@ -86,16 +86,16 @@ class MainActivity : AppCompatActivity() {
     fun goSelectDepartment() {
         supportFragmentManager.commit {
             replace<SelectDepartmentFragment>(R.id.nav_host_fragment_content_main)
-            setReorderingAllowed(true)
-            addToBackStack("SelectDepartment")
+            // setReorderingAllowed(true)
+            // addToBackStack("SelectDepartment")
         }
     }
 
     fun goSelectLocation() {
         supportFragmentManager.commit {
             replace<SelectLocationFragment>(R.id.nav_host_fragment_content_main)
-            setReorderingAllowed(true)
-            addToBackStack("SelectLocation")
+            // setReorderingAllowed(true)
+            // addToBackStack("SelectLocation")
         }
     }
 
