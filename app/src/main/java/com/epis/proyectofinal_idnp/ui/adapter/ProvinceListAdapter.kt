@@ -1,4 +1,4 @@
-package com.epis.proyectofinal_idnp.ui.fragment.select_department
+package com.epis.proyectofinal_idnp.ui.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,27 +8,27 @@ import android.widget.ArrayAdapter
 import android.widget.Filter
 import android.widget.TextView
 import com.epis.proyectofinal_idnp.R
-import com.epis.proyectofinal_idnp.firebase.model.Department
+import com.epis.proyectofinal_idnp.firebase.model.Province
 import java.util.*
 
-class DepartmentListAdapter (private val c: Context,
-                    private val items: MutableList<Department>
+class ProvinceListAdapter (private val c: Context,
+                           private val items: MutableList<Province>
 )
-    : ArrayAdapter<Department>(c, 0, items) {
+    : ArrayAdapter<Province>(c, 0, items) {
 
-    var filteredDepartment: List<Department> = listOf()
+    var filteredProvince: List<Province> = listOf()
 
-    override fun getCount(): Int = filteredDepartment.size
+    override fun getCount(): Int = filteredProvince.size
 
-    override fun getItem(position: Int): Department = filteredDepartment[position]
+    override fun getItem(position: Int): Province = filteredProvince[position]
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val view = convertView ?: LayoutInflater.from(c).inflate(R.layout.autocompletetextview_item, parent, false)
 
         view.findViewById<TextView>(R.id.tvProcode).text =
-            filteredDepartment[position].id_departamento.toString()
+            filteredProvince[position].id_provincia.toString()
 
-        view.findViewById<TextView>(R.id.tvProname).text = filteredDepartment[position].departamento
+        view.findViewById<TextView>(R.id.tvProname).text = filteredProvince[position].provincia
 
         return view
     }
@@ -37,7 +37,7 @@ class DepartmentListAdapter (private val c: Context,
         return object : Filter() {
             override fun publishResults(charSequence: CharSequence?, filterResults: FilterResults) {
                 @Suppress("UNCHECKED_CAST")
-                filteredDepartment = filterResults.values as List<Department>
+                filteredProvince = filterResults.values as List<Province>
                 notifyDataSetChanged()
             }
 
@@ -50,7 +50,7 @@ class DepartmentListAdapter (private val c: Context,
                 else
                     items.filter {
 
-                        it.departamento.lowercase(Locale.ROOT).contains(queryString)
+                        it.provincia.lowercase(Locale.ROOT)!!.contains(queryString)
                     }
 
                 return filterResults

@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.epis.proyectofinal_idnp.data.model.VaccinationLocation
+import com.epis.proyectofinal_idnp.firebase.model.VaccinationLocal
 import com.epis.proyectofinal_idnp.databinding.FragmentVaccinationLocationsBinding
 import com.epis.proyectofinal_idnp.ui.adapter.VaccinationLocationAdapter
 
@@ -59,6 +60,16 @@ class VaccinationLocationsFragment : Fragment() {
                 "CERCADO (18 - 28 años)",
                 "I. E. 41026 Maria Murillo de Bernal..."
             )
+        )
+
+        // Lista de locales de firebase
+        val listLocal = mutableListOf<VaccinationLocal>()
+        vaccinationLocationsViewModel.getAllVaccionationLocalListLiveData()?.observe(
+            viewLifecycleOwner, { vaccionationLocalList ->
+                vaccionationLocalList?.forEach{
+                    listLocal += it
+                }
+            }
         )
 
         val adapter = VaccinationLocationAdapter(locations)
