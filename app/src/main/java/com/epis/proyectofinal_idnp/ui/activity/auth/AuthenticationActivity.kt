@@ -45,9 +45,6 @@ class AuthenticationActivity : AppCompatActivity() {
             val mainIntent = Intent(this, MainActivity::class.java)
             startActivity(mainIntent)
         }
-
-        //Log.e("Usuarios Activ", userViewModel.getAllUsers.value.toString())
-
     }
 
     fun loadLogin() {
@@ -72,15 +69,28 @@ class AuthenticationActivity : AppCompatActivity() {
         auth.addOnCompleteListener(this) { task ->
 
             if (task.isSuccessful) {
-                Log.e("TAG", "Singin succesfull")
-                Toast.makeText(baseContext, "Authenticacion succesful", Toast.LENGTH_SHORT).show()
+                Toast.makeText(baseContext, "Authenticacion succesful",
+                    Toast.LENGTH_SHORT).show()
                 val mainIntent = Intent(this, MainActivity::class.java)
                 startActivity(mainIntent)
-
                 preferences.setUserToken("login")
+
             } else {
                 Toast.makeText(baseContext, "Wrong email or pass", Toast.LENGTH_SHORT).show()
-                Log.e("TAG", "Wrong Data")
+                loadLogin()
+            }
+        }
+    }
+
+    fun loginAnonymus(){
+        auth = AuthService.firebaseSingInAnonymously()
+        auth.addOnCompleteListener(this){ task ->
+            if (task.isSuccessful) {
+                val mainIntent = Intent(this, MainActivity::class.java)
+                startActivity(mainIntent)
+            } else {
+                Toast.makeText(baseContext, "Authentication failed.",
+                    Toast.LENGTH_SHORT).show()
                 loadLogin()
             }
         }
@@ -93,11 +103,9 @@ class AuthenticationActivity : AppCompatActivity() {
         auth.addOnCompleteListener(this) { task ->
 
             if(task.isSuccessful) {
-                Log.e("TAG", "Creation succesful")
                 Toast.makeText(baseContext, "User created", Toast.LENGTH_SHORT).show()
                 UserRepository.saveUser(user)
             } else {
-                Log.e("TAG", "Creation failed")
                 Toast.makeText(baseContext, "Something went wrong", Toast.LENGTH_SHORT).show()
                 loadRegister()
             }

@@ -18,14 +18,11 @@ import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import com.epis.proyectofinal_idnp.R
 import com.epis.proyectofinal_idnp.databinding.ActivityMainBinding
-import com.epis.proyectofinal_idnp.firebase.model.User
-import com.epis.proyectofinal_idnp.firebase.repository.UserRepository
 import com.epis.proyectofinal_idnp.firebase.service.AuthService
 import com.epis.proyectofinal_idnp.ui.activity.auth.AuthenticationActivity
 import com.epis.proyectofinal_idnp.ui.fragment.select_department.SelectDepartmentFragment
 import com.epis.proyectofinal_idnp.ui.fragment.select_location.SelectLocationFragment
 import com.epis.proyectofinal_idnp.utils.SharedPreferencesHandler
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,18 +32,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        /*UserRepository.save(User(
-            "Jefferson Farfan",
-            959973037,
-            Date(),
-            "Phizer",
-            "vJaQLCXI2LUXDH3avVrabCmoxej2"
-        ))*/
-
-        UserRepository.findAll().observe(this, {
-            Log.e("TAG", it.toString())
-        })
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
