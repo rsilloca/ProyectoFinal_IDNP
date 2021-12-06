@@ -15,6 +15,8 @@ import com.epis.proyectofinal_idnp.R
 import com.epis.proyectofinal_idnp.data.model.VaccinationLocation
 import com.epis.proyectofinal_idnp.databinding.FragmentVaccinationLocationsBinding
 import com.epis.proyectofinal_idnp.ui.adapter.VaccinationLocationAdapter
+import com.epis.proyectofinal_idnp.ui.fragment.draw_path.DrawPathFragment
+import com.epis.proyectofinal_idnp.ui.fragment.draw_path.DrawPathViewModel
 import org.w3c.dom.Text
 
 
@@ -26,6 +28,7 @@ class VaccinationLocationsFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    private var model: DrawPathViewModel? = null
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -96,6 +99,16 @@ class VaccinationLocationsFragment : Fragment() {
         title.text = location.title
         name.text = location.subtitle
         date.text = location.date
+
+        btnComoLlegar.setOnClickListener {
+            val model = ViewModelProvider(this).get(DrawPathViewModel::class.java)
+            model?.setLocation(location.latitude, location.longitude)
+            val myfragment = DrawPathFragment()
+            val fragmentTransaction = requireFragmentManager().beginTransaction()
+            fragmentTransaction.replace(R.id.nav_host_fragment_content_main, myfragment)
+            fragmentTransaction.addToBackStack(null)
+            fragmentTransaction.commit()
+        }
 
         btnClose.setOnClickListener {
             dialog.dismiss()
