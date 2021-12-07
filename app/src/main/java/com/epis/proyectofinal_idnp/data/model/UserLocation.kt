@@ -1,7 +1,7 @@
 package com.epis.proyectofinal_idnp.data.model
 
 data class UserLocation(
-    val label: String,
-    val latitude: Long,
-    val longitude: Long
+    var label: String,
+    var latitude: Double,
+    var longitude: Double
 )

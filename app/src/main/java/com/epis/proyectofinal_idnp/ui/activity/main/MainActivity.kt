@@ -17,18 +17,26 @@ import androidx.core.view.get
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import com.epis.proyectofinal_idnp.R
+import com.epis.proyectofinal_idnp.data.model.UserLocation
+import com.epis.proyectofinal_idnp.data.model.VaccinationLocation
 import com.epis.proyectofinal_idnp.databinding.ActivityMainBinding
 import com.epis.proyectofinal_idnp.firebase.service.AuthService
 import com.epis.proyectofinal_idnp.ui.activity.auth.AuthenticationActivity
+import com.epis.proyectofinal_idnp.ui.fragment.home.HomeFragment
 import com.epis.proyectofinal_idnp.ui.fragment.select_department.SelectDepartmentFragment
 import com.epis.proyectofinal_idnp.ui.fragment.select_location.SelectLocationFragment
+import com.epis.proyectofinal_idnp.ui.fragment.vaccination_locations.VaccinationLocationsFragment
 import com.epis.proyectofinal_idnp.utils.SharedPreferencesHandler
+import kotlin.properties.Delegates
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
     private lateinit var preferences: SharedPreferencesHandler
+    private var idDepartment by Delegates.notNull<Int>()
+    private var idProvince by Delegates.notNull<Int>()
+    private lateinit var location: UserLocation
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +47,10 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.appBarMain.toolbar)
 
         preferences = SharedPreferencesHandler(this)
+
+        idDepartment = preferences.getDepartment()
+        idProvince = preferences.getProvince()
+        location = preferences.getLocation()
 
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
@@ -84,16 +96,48 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun goSelectDepartment() {
-        supportFragmentManager.commit {
-            replace<SelectDepartmentFragment>(R.id.nav_host_fragment_content_main)
-            // setReorderingAllowed(true)
-            // addToBackStack("SelectDepartment")
+        if (thereIsLocationDefault()) {
+            gotoVaccinationLocations("",0.0,0.0)
+        } else {
+            supportFragmentManager.commit {
+                replace<SelectDepartmentFragment>(R.id.nav_host_fragment_content_main)
+                // setReorderingAllowed(true)
+                // addToBackStack("SelectDepartment")
+            }
         }
     }
 
-    fun goSelectLocation() {
+    fun goSelectLocation(_idDepartment: Int, _idProvince: Int) {
+        idDepartment = _idDepartment
+        idProvince = _idProvince
+        preferences.setDepartment(idDepartment)
+        preferences.setProvince(idProvince)
         supportFragmentManager.commit {
             replace<SelectLocationFragment>(R.id.nav_host_fragment_content_main)
+            // setReorderingAllowed(true)
+            // addToBackStack("SelectLocation")
+        }
+    }
+
+    fun gotoVaccinationLocations(_label: String, _latitude: Double, _longitude: Double) {
+        if (_label != "" && _latitude != 0.0 && _longitude != 0.0) {
+            location = UserLocation(_label, _latitude, _longitude)
+            preferences.setLocation(location)
+        }
+        supportFragmentManager.commit {
+            replace<VaccinationLocationsFragment>(R.id.nav_host_fragment_content_main)
+            // setReorderingAllowed(true)
+            // addToBackStack("SelectLocation")
+        }
+    }
+
+    private fun thereIsLocationDefault(): Boolean {
+        return idDepartment != null && idProvince != null && location.latitude != 0.0 && location.longitude != 0.0
+    }
+
+    fun gotoHome() {
+        supportFragmentManager.commit {
+            replace<HomeFragment>(R.id.nav_host_fragment_content_main)
             // setReorderingAllowed(true)
             // addToBackStack("SelectLocation")
         }
