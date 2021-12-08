@@ -22,6 +22,7 @@ import com.epis.proyectofinal_idnp.data.model.VaccinationLocation
 import com.epis.proyectofinal_idnp.databinding.ActivityMainBinding
 import com.epis.proyectofinal_idnp.firebase.service.AuthService
 import com.epis.proyectofinal_idnp.ui.activity.auth.AuthenticationActivity
+import com.epis.proyectofinal_idnp.ui.fragment.draw_path.DrawPathFragment
 import com.epis.proyectofinal_idnp.ui.fragment.home.HomeFragment
 import com.epis.proyectofinal_idnp.ui.fragment.select_department.SelectDepartmentFragment
 import com.epis.proyectofinal_idnp.ui.fragment.select_location.SelectLocationFragment
@@ -124,8 +125,13 @@ class MainActivity : AppCompatActivity() {
             location = UserLocation(_label, _latitude, _longitude)
             preferences.setLocation(location)
         }
+        val bundle = Bundle()
+        bundle.putInt("idDepartment", preferences.getDepartment())
+        bundle.putInt("idProvince", preferences.getProvince())
+        val fragment = VaccinationLocationsFragment()
+        fragment.arguments = bundle
         supportFragmentManager.commit {
-            replace<VaccinationLocationsFragment>(R.id.nav_host_fragment_content_main)
+            replace(R.id.nav_host_fragment_content_main, fragment)
             // setReorderingAllowed(true)
             // addToBackStack("SelectLocation")
         }
@@ -138,6 +144,20 @@ class MainActivity : AppCompatActivity() {
     fun gotoHome() {
         supportFragmentManager.commit {
             replace<HomeFragment>(R.id.nav_host_fragment_content_main)
+            // setReorderingAllowed(true)
+            // addToBackStack("SelectLocation")
+        }
+    }
+
+    fun viewRoute(location: VaccinationLocation) {
+        val bundle = Bundle()
+        bundle.putDouble("latitudeFrom", preferences.getLocation().latitude)
+        bundle.putDouble("longitudeFrom", preferences.getLocation().longitude)
+        bundle.putSerializable("location", location)
+        val fragment = DrawPathFragment()
+        fragment.arguments = bundle
+        supportFragmentManager.commit {
+            replace(R.id.nav_host_fragment_content_main, fragment)
             // setReorderingAllowed(true)
             // addToBackStack("SelectLocation")
         }

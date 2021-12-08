@@ -15,6 +15,7 @@ import com.epis.proyectofinal_idnp.R
 import com.epis.proyectofinal_idnp.data.model.VaccinationLocation
 import com.epis.proyectofinal_idnp.firebase.model.VaccinationLocal
 import com.epis.proyectofinal_idnp.databinding.FragmentVaccinationLocationsBinding
+import com.epis.proyectofinal_idnp.ui.activity.main.MainActivity
 import com.epis.proyectofinal_idnp.ui.adapter.VaccinationLocationAdapter
 import com.epis.proyectofinal_idnp.ui.fragment.draw_path.DrawPathFragment
 import com.epis.proyectofinal_idnp.ui.fragment.draw_path.DrawPathViewModel
@@ -29,7 +30,8 @@ class VaccinationLocationsFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-    private var model: DrawPathViewModel? = null
+    private var idDepartment: Int = 1
+    private var idProvince: Int = 1
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -42,41 +44,67 @@ class VaccinationLocationsFragment : Fragment() {
         _binding = FragmentVaccinationLocationsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        idDepartment = arguments?.getInt("idDepartment") ?: idDepartment
+        idProvince = arguments?.getInt("idProvince") ?: idProvince
+        Log.e("Department", idDepartment.toString())
+        Log.e("Province", idProvince.toString())
+
         val recyclerView = binding.vaccinationLocationsRv
         var locations = mutableListOf<VaccinationLocation>(
             VaccinationLocation(
                 "Inicia el 21 DIC",
                 "CERCADO (18 - 28 años)",
-                "Estadio de la UNSA"
+                "Estadio de la UNSA",
+                1,
+                1,
+                -16.400394,
+                -71.5458871
             ),
             VaccinationLocation(
                 "Inicia el 21 DIC",
                 "CERCADO (18 - 28 años)",
-                "I. E. Juana Cervantes de Bolognesi..."
+                "I. E. Juana Cervantes de Bolognesi...",
+                1,
+                1,
+                -16.400394,
+                -71.5458871
             ),
             VaccinationLocation(
                 "Inicia el 21 DIC",
                 "CERCADO (18 - 28 años)",
-                "Centro Comercial La Salle"
+                "Centro Comercial La Salle",
+                1,
+                1,
+                -16.400394,
+                -71.5458871
             ),
             VaccinationLocation(
                 "Inicia el 22 DIC",
                 "CERCADO (18 - 28 años)",
-                "Complejo Rayo Chachani (Calle..."
+                "Complejo Rayo Chachani (Calle...",
+                1,
+                1,
+                -16.400394,
+                -71.5458871
             ),
             VaccinationLocation(
                 "Inicia el 22 DIC",
                 "CERCADO (18 - 28 años)",
-                "I. E. 41026 Maria Murillo de Bernal..."
+                "I. E. 41026 Maria Murillo de Bernal...",
+                1,
+                1,
+                -16.400394,
+                -71.5458871
             )
         )
 
         // Lista de locales de firebase
-        val listLocal = mutableListOf<VaccinationLocal>()
+        var listLocal = mutableListOf<VaccinationLocation>()
         vaccinationLocationsViewModel.getAllVaccionationLocalListLiveData()?.observe(
             viewLifecycleOwner, { vaccionationLocalList ->
                 vaccionationLocalList?.forEach{
-                    listLocal += it
+                    listLocal.add(VaccinationLocation("", it.nombre, it.entidad_administra,
+                        it.id_departamento, it.id_provincia, it.latitud, it.longitud))
                 }
             }
         )
@@ -112,13 +140,15 @@ class VaccinationLocationsFragment : Fragment() {
         date.text = location.date
 
         btnComoLlegar.setOnClickListener {
-            val model = ViewModelProvider(this).get(DrawPathViewModel::class.java)
+            (activity as MainActivity).viewRoute(location)
+            /* val model = ViewModelProvider(this).get(DrawPathViewModel::class.java)
             model?.setLocation(location.latitude, location.longitude)
             val myfragment = DrawPathFragment()
             val fragmentTransaction = requireFragmentManager().beginTransaction()
             fragmentTransaction.replace(R.id.nav_host_fragment_content_main, myfragment)
             fragmentTransaction.addToBackStack(null)
-            fragmentTransaction.commit()
+            fragmentTransaction.commit() */
+            dialog.dismiss()
         }
 
         btnClose.setOnClickListener {
