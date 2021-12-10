@@ -19,6 +19,7 @@ import androidx.fragment.app.replace
 import com.epis.proyectofinal_idnp.R
 import com.epis.proyectofinal_idnp.databinding.ActivityMainBinding
 import com.epis.proyectofinal_idnp.firebase.service.AuthService
+import com.epis.proyectofinal_idnp.network.NetworkConnection
 import com.epis.proyectofinal_idnp.ui.activity.auth.AuthenticationActivity
 import com.epis.proyectofinal_idnp.ui.fragment.select_department.SelectDepartmentFragment
 import com.epis.proyectofinal_idnp.ui.fragment.select_location.SelectLocationFragment
@@ -29,6 +30,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
     private lateinit var preferences: SharedPreferencesHandler
+    private lateinit var cld: NetworkConnection
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +41,15 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.appBarMain.toolbar)
 
         preferences = SharedPreferencesHandler(this)
+
+        cld = NetworkConnection(applicationContext)
+        cld.observe(this, { isConnected ->
+            if(isConnected) {
+                Log.e("TAG", "You are now connected")
+            } else {
+                Log.e("TAG", "You are now disconnected")
+            }
+        })
 
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
