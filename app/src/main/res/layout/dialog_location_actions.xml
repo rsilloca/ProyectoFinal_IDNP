@@ -11,7 +11,7 @@
         android:id="@+id/icon_favorite"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:background="@color/white"
+        android:background="@android:color/transparent"
         android:src="@drawable/ic_favorite_border"
         android:layout_alignParentEnd="true" />
 
@@ -36,7 +36,7 @@
         <ImageButton
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:background="@color/white"
+            android:background="@android:color/transparent"
             android:src="@drawable/ic_location_on"
             app:tint="#666666" />
 
@@ -60,7 +60,7 @@
         <ImageButton
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:background="@color/white"
+            android:background="@android:color/transparent"
             android:src="@drawable/ic_event"
             app:tint="#666666" />
 
@@ -83,8 +83,9 @@
         <ImageButton
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:background="@color/white"
-            android:src="@drawable/ic_access_time_filled" />
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_access_time_filled"
+            app:tint="#666666"/>
 
         <TextView
             android:id="@+id/dialog_time"
