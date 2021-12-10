@@ -21,6 +21,7 @@ import com.epis.proyectofinal_idnp.data.model.UserLocation
 import com.epis.proyectofinal_idnp.data.model.VaccinationLocation
 import com.epis.proyectofinal_idnp.databinding.ActivityMainBinding
 import com.epis.proyectofinal_idnp.firebase.service.AuthService
+import com.epis.proyectofinal_idnp.network.NetworkConnection
 import com.epis.proyectofinal_idnp.ui.activity.auth.AuthenticationActivity
 import com.epis.proyectofinal_idnp.ui.fragment.draw_path.DrawPathFragment
 import com.epis.proyectofinal_idnp.ui.fragment.home.HomeFragment
@@ -35,6 +36,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
     private lateinit var preferences: SharedPreferencesHandler
+    private lateinit var cld: NetworkConnection
     private var idDepartment by Delegates.notNull<Int>()
     private var idProvince by Delegates.notNull<Int>()
     private lateinit var location: UserLocation
@@ -48,6 +50,15 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.appBarMain.toolbar)
 
         preferences = SharedPreferencesHandler(this)
+
+        cld = NetworkConnection(applicationContext)
+        cld.observe(this, { isConnected ->
+            if(isConnected) {
+                Log.e("TAG", "You are now connected")
+            } else {
+                Log.e("TAG", "You are now disconnected")
+            }
+        })
 
         idDepartment = preferences.getDepartment()
         idProvince = preferences.getProvince()

@@ -13,8 +13,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.epis.proyectofinal_idnp.R
 import com.epis.proyectofinal_idnp.data.model.VaccinationLocation
-import com.epis.proyectofinal_idnp.firebase.model.VaccinationLocal
 import com.epis.proyectofinal_idnp.databinding.FragmentVaccinationLocationsBinding
+import com.epis.proyectofinal_idnp.firebase.model.VaccinationLocal
 import com.epis.proyectofinal_idnp.ui.activity.main.MainActivity
 import com.epis.proyectofinal_idnp.ui.adapter.VaccinationLocationAdapter
 import com.epis.proyectofinal_idnp.ui.fragment.draw_path.DrawPathFragment
