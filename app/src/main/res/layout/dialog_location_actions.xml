@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="24dp"
+    android:paddingVertical="20dp"
+    style="@style/bg_rounded">
+
+    <ImageButton
+        android:id="@+id/icon_favorite"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:src="@drawable/ic_favorite_border"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/dialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CERCADO (18 - 28 años)"
+        android:textColor="@color/primary"
+        android:fontFamily="@font/nunito_extra_bold"
+        android:textSize="20dp"
+        android:layout_marginTop="6dp"
+        android:layout_toLeftOf="@id/icon_favorite"/>
+
+    <LinearLayout
+        android:id="@+id/first_row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/dialog_title">
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:src="@drawable/ic_location_on"
+            app:tint="#666666" />
+
+        <TextView
+            android:id="@+id/dialog_place"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Estadio de la UNSA"
+            android:fontFamily="@font/nunito"
+            android:layout_marginTop="10dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/second_row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/first_row">
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:src="@drawable/ic_event"
+            app:tint="#666666" />
+
+        <TextView
+            android:id="@+id/dialog_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Del 21 de Diciembre al 23 de Diciembre"
+            android:layout_marginTop="10dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/third_row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/second_row">
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:src="@drawable/ic_access_time_filled" />
+
+        <TextView
+            android:id="@+id/dialog_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="De 9a.m. a 4p.m."
+            android:layout_marginTop="10dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/third_row">
+
+        <Button
+            android:id="@+id/btn_how_to_get"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="10"
+            android:text="¿Cómo llegar?"
+            style="@style/ubicunate_flat_primary_button"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/btn_close_dialog"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="10"
+            android:text="Cerrar"
+            style="@style/ubicunate_stroked_primary_button"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

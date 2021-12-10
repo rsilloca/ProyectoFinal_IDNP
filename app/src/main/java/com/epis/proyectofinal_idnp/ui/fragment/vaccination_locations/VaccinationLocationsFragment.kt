@@ -1,16 +1,21 @@
 package com.epis.proyectofinal_idnp.ui.fragment.vaccination_locations
 
+import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.util.Log
+import android.view.*
+import android.widget.Button
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.epis.proyectofinal_idnp.R
 import com.epis.proyectofinal_idnp.data.model.VaccinationLocation
-import com.epis.proyectofinal_idnp.firebase.model.VaccinationLocal
 import com.epis.proyectofinal_idnp.databinding.FragmentVaccinationLocationsBinding
 import com.epis.proyectofinal_idnp.ui.adapter.VaccinationLocationAdapter
+import org.w3c.dom.Text
 
 
 class VaccinationLocationsFragment : Fragment() {
@@ -62,17 +67,10 @@ class VaccinationLocationsFragment : Fragment() {
             )
         )
 
-        // Lista de locales de firebase
-        val listLocal = mutableListOf<VaccinationLocal>()
-        vaccinationLocationsViewModel.getAllVaccionationLocalListLiveData()?.observe(
-            viewLifecycleOwner, { vaccionationLocalList ->
-                vaccionationLocalList?.forEach{
-                    listLocal += it
-                }
-            }
-        )
-
-        val adapter = VaccinationLocationAdapter(locations)
+        val adapter = VaccinationLocationAdapter(locations) {
+            Log.d("click event", it.subtitle)
+            showDialogActions(it)
+        }
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
 
@@ -82,5 +80,31 @@ class VaccinationLocationsFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun showDialogActions(location: VaccinationLocation) {
+        val dialog = Dialog(requireContext())
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(R.layout.dialog_location_actions)
+
+        val btnComoLlegar = dialog.findViewById<Button>(R.id.btn_how_to_get)
+        val btnClose = dialog.findViewById<Button>(R.id.btn_close_dialog)
+        val title = dialog.findViewById<TextView>(R.id.dialog_title)
+        val name = dialog.findViewById<TextView>(R.id.dialog_place)
+        val date = dialog.findViewById<TextView>(R.id.dialog_date)
+
+        title.text = location.title
+        name.text = location.subtitle
+        date.text = location.date
+
+        btnClose.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialog.show()
+        dialog.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.window?.attributes?.windowAnimations = R.style.dialog_animation
+        dialog.window?.setGravity(Gravity.BOTTOM)
     }
 }

@@ -65,7 +65,9 @@ class FavoritesFragment : Fragment() {
             )
         )
 
-        val adapter = VaccinationLocationAdapter(locations)
+        val adapter = VaccinationLocationAdapter(locations) {
+            // Ejecutar accion
+        }
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
 
