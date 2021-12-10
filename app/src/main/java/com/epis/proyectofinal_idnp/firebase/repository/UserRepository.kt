@@ -8,15 +8,17 @@ object UserRepository : FirebaseRepository<User>(User::class.java) {
 
     private lateinit var authUser: FirebaseUser
 
-    fun saveUser (user: com.epis.proyectofinal_idnp.data.model.User){
+    fun saveUser(user: com.epis.proyectofinal_idnp.data.model.User) {
         authUser = AuthService.firebaseGetCurrentUser()!!
-
-        super.save(User(
+        this.saveWithExistentDocumentId(documentId = authUser.uid, User(
             user.fullName,
             user.phoneNumber.toInt(),
             null,
-            "",
-            authUser.uid
+            ""
         ))
     }
+
+    private fun saveWithExistentDocumentId(documentId: String, user: User) =
+        this.collectionReference.document(documentId).set(user)
+
 }

@@ -105,13 +105,13 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginRight="4dp"
-            android:background="@drawable/bg_cicle_primary"/>
+            android:background="@drawable/bg_circle_primary"/>
 
         <View
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:backgroundTint="#C4C4C4"
-            android:background="@drawable/bg_cicle_primary"/>
+            android:background="@drawable/bg_circle_primary"/>
 
     </LinearLayout>
 

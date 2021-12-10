@@ -1,7 +1,9 @@
 package com.epis.proyectofinal_idnp.ui.fragment.profile
 
 import android.os.Bundle
+import android.text.Editable
 import android.text.InputType
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -38,6 +40,15 @@ class ProfileFragment : Fragment() {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        profileViewModel.getCurrentUser()?.observe(viewLifecycleOwner, Observer {
+
+            binding.inputNameProfile.text = Editable.Factory.getInstance()
+                .newEditable(it.fullname)
+            binding.inputPhoneProfile.text = Editable.Factory.getInstance()
+                .newEditable(it.phoneNumber.toString())
+            binding.inputEmailProfile.text = Editable.Factory.getInstance()
+                .newEditable(profileViewModel.getEmailAndIdUser()?.email)
+        })
         /*val textView: EditText = binding.input_name_profile
         profileViewModel.visibility.observe(viewLifecycleOwner, Observer {
             textView.text = it

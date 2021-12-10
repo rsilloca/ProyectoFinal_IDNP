@@ -1,13 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    style="@style/bg_fragment"
     tools:context=".ui.fragment.draw_path.DrawPathFragment">
 
-    <TextView
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/map_draw_path"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:layout_height="match_parent"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="bottom"
+        android:paddingTop="24dp"
+        android:paddingBottom="32dp"
+        style="@style/bg_rounded">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:textAlignment="center"
+            android:text="Ruta hacia Estadio de la UNSA"
+            android:textColor="@color/primary"
+            android:fontFamily="@font/nunito_extra_bold"
+            android:layout_marginBottom="12dp"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:textAlignment="center"
+            android:text="¿Irás a vacunarte después?"
+            android:fontFamily="@font/nunito"
+            android:textSize="16dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:textAlignment="center"
+            android:text="¡Agrega un recordatorio en Calendar para no olvidarlo!"
+            android:fontFamily="@font/nunito"
+            android:textSize="16dp"/>
+
+        <Button
+            android:id="@+id/next_select_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="50dp"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="24dp"
+            android:text="AGREGAR RECORDATORIO"
+            style="@style/ubicunate_flat_primary_button"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="32dp">
+
+            <ImageButton
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_keyboard_arrow_left"
+                app:tint="@color/primary"
+                android:layout_marginRight="12dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/primary"
+                android:textSize="18dp"
+                android:fontFamily="@font/nunito_extra_bold"
+                android:text="VOLVER ATRÁS"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </FrameLayout>

@@ -39,12 +39,12 @@ class SharedPreferencesHandler(context: Context) {
         return preferences.getString(activity.getString(R.string.label_location_key), "Location")!!
     }
 
-    private fun getLatitude(): Long {
-        return preferences.getLong(activity.getString(R.string.latitude_key), 0L)
+    private fun getLatitude(): Double {
+        return preferences.getString(activity.getString(R.string.latitude_key), "0.0")!!.toDouble()
     }
 
-    private fun getLongitude(): Long {
-        return preferences.getLong(activity.getString(R.string.longitude_key), 0L)
+    private fun getLongitude(): Double {
+        return preferences.getString(activity.getString(R.string.longitude_key), "0.0")!!.toDouble()
     }
 
     // SETTERS
@@ -74,13 +74,13 @@ class SharedPreferencesHandler(context: Context) {
         editPreferences.commit()
     }
 
-    private fun setLatitude(latitude: Long) {
-        editPreferences.putLong(activity.getString(R.string.latitude_key), latitude)
+    private fun setLatitude(latitude: Double) {
+        editPreferences.putString(activity.getString(R.string.latitude_key), latitude.toString())
         editPreferences.commit()
     }
 
-    private fun setLongitude(longitude: Long) {
-        editPreferences.putLong(activity.getString(R.string.longitude_key), longitude)
+    private fun setLongitude(longitude: Double) {
+        editPreferences.putString(activity.getString(R.string.longitude_key), longitude.toString())
         editPreferences.commit()
     }
 
