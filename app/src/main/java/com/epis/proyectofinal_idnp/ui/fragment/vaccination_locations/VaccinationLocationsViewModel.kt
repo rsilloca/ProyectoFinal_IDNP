@@ -26,9 +26,15 @@ class VaccinationLocationsViewModel : ViewModel() {
     }
 
     fun getAllVaccionationLocalListLiveDataByProvince(idProvince: Int) : MultipleDocumentReferenceLiveData<VaccinationLocal, out Query?>? {
-        if(allLiveDataLocal == null) {
+        //if(allLiveDataLocal == null) {
             allLiveDataLocal = vaccionationLocal.findbyIdProvince(idProvince)
-        }
+        //}
+        return allLiveDataLocal
+    }
+    fun getAllVaccionationLocalListLiveDataByDistrite(distrite: String) : MultipleDocumentReferenceLiveData<VaccinationLocal, out Query?>? {
+        //if(allLiveDataLocal == null) {
+        allLiveDataLocal = vaccionationLocal.findbyDistrite(distrite)
+        //}
         return allLiveDataLocal
     }
 }
