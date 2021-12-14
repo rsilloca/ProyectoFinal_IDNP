@@ -1,9 +1,7 @@
 package com.epis.proyectofinal_idnp.firebase.service
 
 import com.google.android.gms.tasks.Task
-import com.google.firebase.auth.AuthResult
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.*
 
 object AuthService {
 
@@ -27,6 +25,12 @@ object AuthService {
 
     fun firebaseSingInAnonymously(): Task<AuthResult>{
         return firebaseAuth.signInAnonymously()
+    }
+
+    fun firebaseReauthenticationWithCredential(email: String, password :String): Task<Void>? {
+        return firebaseAuth.currentUser?.reauthenticate(
+            EmailAuthProvider.getCredential(email, password)
+        )
     }
 
 }

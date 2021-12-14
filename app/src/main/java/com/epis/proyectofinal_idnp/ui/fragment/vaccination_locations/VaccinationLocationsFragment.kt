@@ -11,6 +11,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.epis.proyectofinal_idnp.R
 import com.epis.proyectofinal_idnp.data.model.VaccinationLocation
 import com.epis.proyectofinal_idnp.databinding.FragmentVaccinationLocationsBinding
@@ -32,6 +33,7 @@ class VaccinationLocationsFragment : Fragment() {
     private val binding get() = _binding!!
     private var idDepartment: Int = 1
     private var idProvince: Int = 1
+    private var listLocal = mutableListOf<VaccinationLocation>()
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -99,24 +101,30 @@ class VaccinationLocationsFragment : Fragment() {
         )
 
         // Lista de locales de firebase
-        var listLocal = mutableListOf<VaccinationLocation>()
-        vaccinationLocationsViewModel.getAllVaccionationLocalListLiveData()?.observe(
+        // Cree una lista privada de listlocal
+        vaccinationLocationsViewModel.getAllVaccionationLocalListLiveDataByProvince(401)?.observe(
             viewLifecycleOwner, { vaccionationLocalList ->
                 vaccionationLocalList?.forEach{
-                    listLocal.add(VaccinationLocation("", it.nombre, it.entidad_administra,
-                        it.id_departamento, it.id_provincia, it.latitud, it.longitud))
+                    listLocal += VaccinationLocation("Inicia el 22 DIC", it.nombre, it.entidad_administra,
+                        it.id_departamento, it.id_provincia, it.latitud, it.longitud)
                 }
+                Log.e("TAG", "=> "+listLocal.size)
+                fillAdapter(recyclerView) // Lo converti en función privada
             }
         )
 
-        val adapter = VaccinationLocationAdapter(locations) {
+        return root
+    }
+
+    // Función privada creada para llenar adapter
+    private fun fillAdapter(recyclerView:RecyclerView){
+        val adapter = VaccinationLocationAdapter(listLocal) {
+            Log.e("TAG", it.toString())
             Log.d("click event", it.subtitle)
             showDialogActions(it)
         }
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
-
-        return root
     }
 
     override fun onDestroyView() {
