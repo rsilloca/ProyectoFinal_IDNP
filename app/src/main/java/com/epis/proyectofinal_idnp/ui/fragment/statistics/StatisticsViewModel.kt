@@ -25,4 +25,11 @@ class StatisticsViewModel : ViewModel() {
         return allLiveDataLocal
     }
 
+    fun finAllEventsBetween(date1: Long, date2: Long): MultipleDocumentReferenceLiveData<VaccinationEvent, out Query?>?{
+        //if(allLiveDataLocal == null){
+            allLiveDataLocal = vaccinationEvent.finAllEventsBetween(date1, date2)
+        //}
+        return allLiveDataLocal
+    }
+
 }

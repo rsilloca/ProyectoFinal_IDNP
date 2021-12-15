@@ -73,7 +73,7 @@ class ReminderFragment : Fragment() {
             val event = VaccinationEvent(
                 preferences.getDepartment(),
                 preferences.getProvince(),
-                startStr
+                tsStart.time
             )
 
             reminderViewModel.saveVaccinationEvent(event)

@@ -1,6 +1,7 @@
 package com.epis.proyectofinal_idnp.ui.fragment.statistics
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.epis.proyectofinal_idnp.databinding.FragmentStatisticsBinding
 import com.epis.proyectofinal_idnp.firebase.model.VaccinationEvent
+import java.util.*
 
 class StatisticsFragment : Fragment() {
 
@@ -32,6 +34,7 @@ class StatisticsFragment : Fragment() {
         _binding = FragmentStatisticsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        fillEventosList()
 
         return root
     }
@@ -39,9 +42,12 @@ class StatisticsFragment : Fragment() {
     private fun fillEventosList(){
         allEvents = mutableListOf()
         val viewModelStatics = statisticsViewModel
-        viewModelStatics.getAllVaccinationEvent()?.observe(viewLifecycleOwner, { events ->
+        val d1 = Date() // 1639546516209 -> Actual Date and Hour
+        val d2 = 1639716420000 // Thu Dec 16 23:47:00 GMT-05:00 2021
+        viewModelStatics.finAllEventsBetween(d1.time, d2)?.observe(viewLifecycleOwner, { events ->
             events?.forEach{
                 allEvents += it
+                Log.e("TAG", ""+it.toString())
             }
         })
     }
