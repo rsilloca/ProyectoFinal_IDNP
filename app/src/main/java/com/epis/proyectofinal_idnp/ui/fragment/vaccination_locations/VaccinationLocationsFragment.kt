@@ -20,6 +20,7 @@ import com.epis.proyectofinal_idnp.ui.activity.main.MainActivity
 import com.epis.proyectofinal_idnp.ui.adapter.VaccinationLocalListAdapter
 import com.epis.proyectofinal_idnp.ui.adapter.VaccinationLocationAdapter
 import com.epis.proyectofinal_idnp.utils.SharedPreferencesHandler
+import androidx.lifecycle.Observer
 
 
 class VaccinationLocationsFragment : Fragment() {
@@ -28,6 +29,7 @@ class VaccinationLocationsFragment : Fragment() {
     private lateinit var preferences: SharedPreferencesHandler
     private lateinit var listlocalF: MutableList<VaccinationLocal>
     private lateinit var listLocal: MutableList<VaccinationLocation>
+    private lateinit var fecha:String
     private var _binding: FragmentVaccinationLocationsBinding? = null
 
     // This property is only valid between onCreateView and
@@ -54,6 +56,10 @@ class VaccinationLocationsFragment : Fragment() {
         Log.e("Province", idProvince.toString())
 
         val recyclerView = binding.vaccinationLocationsRv
+        fecha = ""
+        vaccinationLocationsViewModel.getDate()?.observe(viewLifecycleOwner, {
+            fecha = "Inicia el "+it.fecha
+        })
 
         listVaccinationLocals(recyclerView)
         autoCompleteLocals(inflater)
@@ -83,8 +89,9 @@ class VaccinationLocationsFragment : Fragment() {
         vaccinationLocals.getAllVaccionationLocalListLiveDataByProvince(idProvince)?.observe(
             viewLifecycleOwner, { vaccionationLocalList ->
                 vaccionationLocalList?.forEach{
-                    listLocal += VaccinationLocation("Inicia el 22 DIC", it.nombre, it.distrito,
-                        it.id_departamento, it.id_provincia, it.latitud, it.longitud)
+                    listLocal += VaccinationLocation(fecha,
+                        it.nombre, it.distrito, it.id_departamento, it.id_provincia,
+                        it.latitud, it.longitud)
                 }
                 fillAdapter(recyclerView, listLocal)
             }
@@ -97,8 +104,9 @@ class VaccinationLocationsFragment : Fragment() {
         vaccinationLocals.getAllVaccionationLocalListLiveDataByDistrite(distrite)?.observe(
             viewLifecycleOwner, { vaccionationLocalList ->
                 vaccionationLocalList?.forEach{
-                    listLocal += VaccinationLocation("Inicia el 22 DIC", it.nombre, it.distrito,
-                        it.id_departamento, it.id_provincia, it.latitud, it.longitud)
+                    listLocal += VaccinationLocation(fecha,
+                        it.nombre, it.distrito, it.id_departamento, it.id_provincia,
+                        it.latitud, it.longitud)
                 }
                 fillAdapter(recyclerView, listLocal)
             }
