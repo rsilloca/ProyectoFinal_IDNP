@@ -9,10 +9,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.epis.proyectofinal_idnp.databinding.FragmentStatisticsBinding
+import com.epis.proyectofinal_idnp.firebase.model.VaccinationEvent
 
 class StatisticsFragment : Fragment() {
 
     private lateinit var statisticsViewModel: StatisticsViewModel
+    private lateinit var allEvents: MutableList<VaccinationEvent>
     private var _binding: FragmentStatisticsBinding? = null
 
     // This property is only valid between onCreateView and
@@ -32,6 +34,16 @@ class StatisticsFragment : Fragment() {
 
 
         return root
+    }
+
+    private fun fillEventosList(){
+        allEvents = mutableListOf()
+        val viewModelStatics = statisticsViewModel
+        viewModelStatics.getAllVaccinationEvent()?.observe(viewLifecycleOwner, { events ->
+            events?.forEach{
+                allEvents += it
+            }
+        })
     }
 
     override fun onDestroyView() {
