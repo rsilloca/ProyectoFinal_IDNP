@@ -6,9 +6,19 @@ import com.google.firebase.firestore.Query
 
 object VaccinationLocalRepository: FirebaseRepository<VaccinationLocal>(VaccinationLocal::class.java) {
 
-    fun findbyIdProvince(idProvince: Int) : MultipleDocumentReferenceLiveData<VaccinationLocal, out Query?>{
-        return MultipleDocumentReferenceLiveData(collectionReference.whereEqualTo(
-            "id_provincia", idProvince
-        ), entityClass)
+    fun findbyIdProvince(idProvince: Int): MultipleDocumentReferenceLiveData<VaccinationLocal, out Query?> {
+        return MultipleDocumentReferenceLiveData(
+            collectionReference.whereEqualTo(
+                "id_provincia", idProvince
+            ), entityClass
+        )
+    }
+
+    fun findbyDistrite(distrite: String): MultipleDocumentReferenceLiveData<VaccinationLocal, out Query?> {
+        return MultipleDocumentReferenceLiveData(
+            collectionReference.whereEqualTo(
+                "distrito", distrite
+            ), entityClass
+        )
     }
 }

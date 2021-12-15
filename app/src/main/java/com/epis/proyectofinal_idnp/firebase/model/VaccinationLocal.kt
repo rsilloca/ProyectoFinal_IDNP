@@ -7,14 +7,16 @@ class VaccinationLocal (
         var longitud: Double,
         var entidad_administra: String,
         var id_departamento: Int,
-        var id_provincia: Int
+        var id_provincia: Int,
+        var dosis: Int,
+        var distrito: String
     ): FirebaseEntity(documentId = null) {
     constructor() : this(id_ubigeo = 0, nombre = "", latitud = 0.0, longitud = 0.0,
-        entidad_administra = "", id_departamento = 0, id_provincia = 0)
+        entidad_administra = "", id_departamento = 0, id_provincia = 0, dosis = 0, distrito = "")
 
     override fun toString(): String {
         return "VaccinationLocal($id_ubigeo, $nombre, $latitud, $longitud, $entidad_administra, " +
-                "$id_departamento, $id_provincia)"
+                "$id_departamento, $id_provincia, $dosis, $distrito)"
     }
 
 }

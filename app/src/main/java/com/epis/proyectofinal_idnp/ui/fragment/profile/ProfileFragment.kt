@@ -97,7 +97,13 @@ class ProfileFragment : Fragment() {
 
         binding.inputPwdProfile.text = null
         binding.inputNewPwdProfile.text = null
-
-        profileViewModel.updatePassword(email, oldPass, newPass, context)
+        when {
+            oldPass.isEmpty() || newPass.isEmpty() ->
+            {
+                Toast.makeText(context, "EMPTY FIELDS", Toast.LENGTH_SHORT).show()
+            } else -> {
+                profileViewModel.updatePassword(email, oldPass, newPass, context)
+            }
+        }
     }
 }
