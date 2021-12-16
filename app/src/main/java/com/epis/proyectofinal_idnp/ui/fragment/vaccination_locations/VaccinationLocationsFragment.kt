@@ -61,7 +61,7 @@ class VaccinationLocationsFragment : Fragment() {
         val recyclerView = binding.vaccinationLocationsRv
         fecha = ""
         vaccinationLocationsViewModel.getDate()?.observe(viewLifecycleOwner, {
-            fecha = "Inicia el "+it.fecha
+            fecha = "Inicia el " + it.fecha
         })
 
         listVaccinationLocals(recyclerView)
