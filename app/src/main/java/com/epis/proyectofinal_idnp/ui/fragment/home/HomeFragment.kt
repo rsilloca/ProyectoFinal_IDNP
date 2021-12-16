@@ -13,10 +13,12 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.epis.proyectofinal_idnp.data.application.VaccinationApplication
 import com.epis.proyectofinal_idnp.databinding.FragmentHomeBinding
+import com.epis.proyectofinal_idnp.firebase.model.VaccinationEvent
 import com.epis.proyectofinal_idnp.ui.activity.auth.AuthenticationActivity
 import com.epis.proyectofinal_idnp.ui.activity.main.MainActivity
 import com.epis.proyectofinal_idnp.viewmodel.UserViewModel
 import com.epis.proyectofinal_idnp.viewmodel.UserViewModelFactory
+import java.util.*
 
 class HomeFragment : Fragment() {
 
@@ -29,6 +31,8 @@ class HomeFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    private lateinit var allEvents: MutableList<VaccinationEvent>
+    private lateinit var tvQuantity: TextView
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -46,9 +50,29 @@ class HomeFragment : Fragment() {
             (activity as MainActivity).goSelectDepartment()
         }
 
+        tvQuantity = binding.quantityPeople
+
         Log.e("Usuarios HomeF", userViewModel.getAllUsers.value.toString())
 
+        fillEventosList()
+
         return root
+    }
+
+    private fun fillEventosList(){
+        allEvents = mutableListOf()
+        val viewModelStatics = homeViewModel
+        val startDate = Date()
+        startDate.hours = 0
+        startDate.minutes = 0
+        Log.e("start date", startDate.toString())
+        val endDate = Date(startDate.time)
+        endDate.hours = 23
+        endDate.minutes = 59
+        Log.e("end date", endDate.toString())
+        viewModelStatics.finAllEventsBetween(startDate.time, endDate.time)?.observe(viewLifecycleOwner, { events ->
+            tvQuantity.text = events?.size.toString()
+        })
     }
 
     override fun onDestroyView() {

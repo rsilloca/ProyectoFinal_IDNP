@@ -23,6 +23,9 @@ class VaccinationLocationsViewModel : ViewModel() {
     private var allLiveDataLocal: MultipleDocumentReferenceLiveData<VaccinationLocal, out Query?>? = null
     private var allLiveDataNextEvent: DocumentReferenceFirebaseLiveData<NextEvent>? = null
 
+    private var favoritesVaccionationLocal = FavoritesVaccinationLocalRepository
+    private var allLiveDataLocalFav: MultipleDocumentReferenceLiveData<FavoritesVaccionationLocal, out Query?>? = null
+
     private val _text = MutableLiveData<String>().apply {
         value = "This is Vaccination Locations Fragment"
     }
@@ -59,4 +62,12 @@ class VaccinationLocationsViewModel : ViewModel() {
     fun saveFavoriteLocalVaccination(vaccinationLocalId: String){
         vaccinationLocaFav.save(FavoritesVaccionationLocal(vaccinationLocalId, currentUser!!.uid))
     }
+
+    fun getAllFavoritesLocals() : MultipleDocumentReferenceLiveData<FavoritesVaccionationLocal, out Query?>? {
+        if(allLiveDataLocalFav == null) {
+            allLiveDataLocalFav = favoritesVaccionationLocal.findByIdUser(currentUser!!.uid)
+        }
+        return allLiveDataLocalFav
+    }
+
 }

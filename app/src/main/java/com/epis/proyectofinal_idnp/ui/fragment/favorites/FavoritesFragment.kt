@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -28,6 +29,7 @@ class FavoritesFragment : Fragment() {
     private lateinit var listLocal: MutableList<VaccinationLocation>
     private lateinit var favs: MutableList<FavoritesVaccionationLocal>
     private lateinit var list: MutableList<VaccinationLocal>
+    private lateinit var adapter: VaccinationLocationAdapter
 
 
     // This property is only valid between onCreateView and
@@ -53,8 +55,9 @@ class FavoritesFragment : Fragment() {
     }
 
 
-    private fun fillAdapter(recyclerView: RecyclerView, local:MutableList<VaccinationLocation>){
-        val adapter = VaccinationLocationAdapter(local) {
+    private fun fillAdapter(recyclerView: RecyclerView, local: MutableList<VaccinationLocation>){
+        Log.e("local data", local.size.toString())
+        adapter = VaccinationLocationAdapter(local) {
             Log.e("TAG", it.toString())
             Log.d("click event", it.subtitle)
             showDialogActions(it)
@@ -66,22 +69,22 @@ class FavoritesFragment : Fragment() {
     private fun listVaccinationLocals(recyclerView:RecyclerView){
         val favoritesViewModel = favoritesViewModel
         listLocal = mutableListOf()
+        fillAdapter(recyclerView, listLocal)
         favs = mutableListOf()
         list = mutableListOf()
         favoritesViewModel.getAllFavoritesLocals()?.observe(viewLifecycleOwner, { local ->
+            Log.e("receive observe", local?.size.toString())
             local?.forEach{ fav->
                 favoritesViewModel.getLocalVaccination(fav.id_local)?.observe(viewLifecycleOwner,{ ml ->
                     list += ml
                     Log.e("TAG", ml.toString())
+                    listLocal += VaccinationLocation(ml.documentId!!, "Inicia el 17 de Dic",
+                        ml.nombre, ml.distrito, ml.id_departamento, ml.id_provincia,
+                        ml.latitud, ml.longitud)
+                    Log.e("TAG", ml.toString())
+                    adapter.notifyDataSetChanged()
                 })
             }
-            list.forEach {
-                listLocal += VaccinationLocation(it.documentId!!, "17 de Dic",
-                    it.nombre, it.distrito, it.id_departamento, it.id_provincia,
-                    it.latitud, it.longitud)
-                Log.e("TAG", it.toString())
-            }
-            fillAdapter(recyclerView, listLocal)
         })
     }
 
@@ -97,6 +100,7 @@ class FavoritesFragment : Fragment() {
 
         val btnComoLlegar = dialog.findViewById<Button>(R.id.btn_how_to_get)
         val btnClose = dialog.findViewById<Button>(R.id.btn_close_dialog)
+        val btnFavorite = dialog.findViewById<ImageButton>(R.id.icon_favorite)
         val title = dialog.findViewById<TextView>(R.id.dialog_title)
         val name = dialog.findViewById<TextView>(R.id.dialog_place)
         val date = dialog.findViewById<TextView>(R.id.dialog_date)
@@ -105,15 +109,10 @@ class FavoritesFragment : Fragment() {
         name.text = location.subtitle
         date.text = location.date
 
+        btnFavorite.setImageDrawable(requireActivity().getDrawable(R.drawable.ic_favorite))
+
         btnComoLlegar.setOnClickListener {
             (activity as MainActivity).viewRoute(location)
-            /* val model = ViewModelProvider(this).get(DrawPathViewModel::class.java)
-            model?.setLocation(location.latitude, location.longitude)
-            val myfragment = DrawPathFragment()
-            val fragmentTransaction = requireFragmentManager().beginTransaction()
-            fragmentTransaction.replace(R.id.nav_host_fragment_content_main, myfragment)
-            fragmentTransaction.addToBackStack(null)
-            fragmentTransaction.commit() */
             dialog.dismiss()
         }
 
