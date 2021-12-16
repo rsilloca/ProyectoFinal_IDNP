@@ -107,13 +107,6 @@ class FavoritesFragment : Fragment() {
 
         btnComoLlegar.setOnClickListener {
             (activity as MainActivity).viewRoute(location)
-            /* val model = ViewModelProvider(this).get(DrawPathViewModel::class.java)
-            model?.setLocation(location.latitude, location.longitude)
-            val myfragment = DrawPathFragment()
-            val fragmentTransaction = requireFragmentManager().beginTransaction()
-            fragmentTransaction.replace(R.id.nav_host_fragment_content_main, myfragment)
-            fragmentTransaction.addToBackStack(null)
-            fragmentTransaction.commit() */
             dialog.dismiss()
         }
 
