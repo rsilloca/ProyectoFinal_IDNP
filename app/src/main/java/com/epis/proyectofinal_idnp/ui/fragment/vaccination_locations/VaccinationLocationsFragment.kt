@@ -89,7 +89,7 @@ class VaccinationLocationsFragment : Fragment() {
         vaccinationLocals.getAllVaccionationLocalListLiveDataByProvince(idProvince)?.observe(
             viewLifecycleOwner, { vaccionationLocalList ->
                 vaccionationLocalList?.forEach{
-                    listLocal += VaccinationLocation(fecha,
+                    listLocal += VaccinationLocation(it.documentId!!, fecha,
                         it.nombre, it.distrito, it.id_departamento, it.id_provincia,
                         it.latitud, it.longitud)
                 }
@@ -104,7 +104,7 @@ class VaccinationLocationsFragment : Fragment() {
         vaccinationLocals.getAllVaccionationLocalListLiveDataByDistrite(distrite)?.observe(
             viewLifecycleOwner, { vaccionationLocalList ->
                 vaccionationLocalList?.forEach{
-                    listLocal += VaccinationLocation(fecha,
+                    listLocal += VaccinationLocation(it.documentId!!, fecha,
                         it.nombre, it.distrito, it.id_departamento, it.id_provincia,
                         it.latitud, it.longitud)
                 }
@@ -126,6 +126,12 @@ class VaccinationLocationsFragment : Fragment() {
         val vaccinationLocalListAdapter = VaccinationLocalListAdapter(inflater.context, listlocalF)
         binding.autocompleteLocals.setAdapter(vaccinationLocalListAdapter)
 
+    }
+
+    // Sólo es necesario mandar el id del local
+    private fun saveFavVaccinationLocal(idLocal: String){
+        val vaccinationLocals = vaccinationLocationsViewModel
+        vaccinationLocals.saveFavoriteLocalVaccination(idLocal)
     }
 
     override fun onDestroyView() {
