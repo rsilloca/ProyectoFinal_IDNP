@@ -19,9 +19,7 @@ class FavoritesViewModel : ViewModel() {
     private var favoritesVaccionationLocal = FavoritesVaccinationLocalRepository
     private var allLiveDataLocal: MultipleDocumentReferenceLiveData<FavoritesVaccionationLocal, out Query?>? = null
     private var currentUser = AuthService.firebaseGetCurrentUser()
-    private var userRepository = UserRepository
     private var vaccionationLocal = VaccinationLocalRepository
-    private var liveData: DocumentReferenceFirebaseLiveData<User>? = null
     private var allLiveDataLocalV: DocumentReferenceFirebaseLiveData<VaccinationLocal>? = null
 
     private val _text = MutableLiveData<String>().apply {
@@ -29,16 +27,9 @@ class FavoritesViewModel : ViewModel() {
     }
     val text: LiveData<String> = _text
 
-    fun getCurrentUserData(): DocumentReferenceFirebaseLiveData<User>?{
-        if (liveData == null) {
-            liveData = currentUser?.let { userRepository.findById(it.uid) }
-        }
-        return liveData
-    }
-
-    fun getAllFavoritesLocals(idUser: String) : MultipleDocumentReferenceLiveData<FavoritesVaccionationLocal, out Query?>? {
+    fun getAllFavoritesLocals() : MultipleDocumentReferenceLiveData<FavoritesVaccionationLocal, out Query?>? {
         if(allLiveDataLocal == null) {
-            allLiveDataLocal = favoritesVaccionationLocal.findByIdUser(idUser)
+            allLiveDataLocal = favoritesVaccionationLocal.findByIdUser(currentUser!!.uid)
         }
         return allLiveDataLocal
     }

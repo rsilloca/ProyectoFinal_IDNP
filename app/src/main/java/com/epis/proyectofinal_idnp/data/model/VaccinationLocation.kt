@@ -3,6 +3,7 @@ package com.epis.proyectofinal_idnp.data.model
 import java.io.Serializable
 
 data class VaccinationLocation (
+    val id: String,
     val date: String,
     val title: String,
     val subtitle: String,

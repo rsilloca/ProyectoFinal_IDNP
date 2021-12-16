@@ -68,60 +68,27 @@ class FavoritesFragment : Fragment() {
         listLocal = mutableListOf()
         favs = mutableListOf()
         list = mutableListOf()
-        var locals: MutableList<VaccinationLocal>
-        favoritesViewModel.getCurrentUserData()?.observe(viewLifecycleOwner, { user ->
-            user.documentId?.let {
-                favoritesViewModel.getAllFavoritesLocals(it)?.observe(viewLifecycleOwner, { local ->
-                    local?.forEach{ fav->
-                        favoritesViewModel.getLocalVaccination(fav.id_local)?.observe(viewLifecycleOwner,{ ml ->
-                            list += ml
-                            Log.e("TAG", ml.toString())
-                        })
-                    }
+        favoritesViewModel.getAllFavoritesLocals()?.observe(viewLifecycleOwner, { local ->
+            local?.forEach{ fav->
+                favoritesViewModel.getLocalVaccination(fav.id_local)?.observe(viewLifecycleOwner,{ ml ->
+                    list += ml
+                    Log.e("TAG", ml.toString())
                 })
             }
-
             list.forEach {
-                listLocal += VaccinationLocation("17 de Dic",
+                listLocal += VaccinationLocation(it.documentId!!, "17 de Dic",
                     it.nombre, it.distrito, it.id_departamento, it.id_provincia,
                     it.latitud, it.longitud)
                 Log.e("TAG", it.toString())
             }
             fillAdapter(recyclerView, listLocal)
         })
-
-    }
-
-    private fun local(id:String): MutableList<FavoritesVaccionationLocal>{
-        favs = mutableListOf()
-        val favoritesViewModel = favoritesViewModel
-        favoritesViewModel.getAllFavoritesLocals(id)?.observe(viewLifecycleOwner, { local ->
-           local?.forEach{
-                favs += it
-               Log.e("TAG", it.toString())
-            }
-        })
-        return favs
-    }
-
-    private fun listLocals(idLocal: MutableList<FavoritesVaccionationLocal>): MutableList<VaccinationLocal>{
-        list = mutableListOf()
-        val favoritesViewModel = favoritesViewModel
-        Log.e("TAG", "->" + idLocal.size)
-        idLocal.forEach {
-            favoritesViewModel.getLocalVaccination(it.id_local)?.observe(viewLifecycleOwner,{ ml ->
-                list += ml
-                Log.e("TAG", ml.toString())
-            })
-        }
-        return list
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
 
     private fun showDialogActions(location: VaccinationLocation) {
         val dialog = Dialog(requireContext())
