@@ -14,12 +14,16 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.epis.proyectofinal_idnp.databinding.FragmentReminderBinding
+import com.epis.proyectofinal_idnp.firebase.model.VaccinationEvent
+import com.epis.proyectofinal_idnp.utils.SharedPreferencesHandler
 import java.sql.Timestamp
+import java.text.SimpleDateFormat
 import java.util.*
 
 class ReminderFragment : Fragment() {
 
     private lateinit var reminderViewModel: ReminderViewModel
+    private lateinit var preferences: SharedPreferencesHandler
     private var _binding: FragmentReminderBinding? = null
 
     // This property is only valid between onCreateView and
@@ -64,6 +68,16 @@ class ReminderFragment : Fragment() {
             val tsStart = Timestamp.valueOf(startStr)
             val tsEnd = Timestamp.valueOf(endStr)
             val eventIntent = Intent(Intent.ACTION_INSERT)
+
+            preferences = context?.let { SharedPreferencesHandler(it) }!!
+            val event = VaccinationEvent(
+                preferences.getDepartment(),
+                preferences.getProvince(),
+                tsStart.time
+            )
+
+            reminderViewModel.saveVaccinationEvent(event)
+
             eventIntent.data = CalendarContract.Events.CONTENT_URI
             eventIntent.putExtra(CalendarContract.Events.TITLE, "Vacunación")
             eventIntent.putExtra(CalendarContract.Events.DESCRIPTION, "Description")

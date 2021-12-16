@@ -68,7 +68,7 @@ class DrawPathFragment : Fragment(), OnMapReadyCallback {
         latitudeFrom = arguments?.getDouble("latitudeFrom") ?: latitudeFrom
         longitudeFrom = arguments?.getDouble("longitudeFrom") ?: latitudeFrom
         placeDestination =
-            (arguments?.getSerializable("location") ?: VaccinationLocation("", "", "",
+            (arguments?.getSerializable("location") ?: VaccinationLocation("", "", "", "",
                 1, 1, -16.400394, -71.5458871)) as VaccinationLocation
         Log.e("LatFrom", latitudeFrom.toString())
         Log.e("LatTo", placeDestination.latitude.toString())

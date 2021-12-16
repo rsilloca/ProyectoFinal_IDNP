@@ -26,10 +26,11 @@
                 android:fontFamily="@font/nunito_extra_bold"/>
 
             <TextView
+                android:id="@+id/quantity_people"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
-                android:text="720"
+                android:text="0"
                 android:fontFamily="@font/nunito_extra_bold"
                 android:textColor="@color/secondary"
                 android:textSize="72dp"/>
