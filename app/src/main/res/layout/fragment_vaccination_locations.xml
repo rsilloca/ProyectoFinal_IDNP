@@ -51,14 +51,15 @@
             style="@style/ubicunate_title_fragment"/>
 
         <EditText
+            android:id="@+id/svSearchVaccinationLocation"
+            style="@style/ubicunate_outline_primary_input"
             android:layout_width="match_parent"
-            android:layout_height="42dp"
-            android:layout_marginTop="92dp"
+            android:layout_height="48dp"
             android:layout_marginHorizontal="48dp"
-            android:hint="Buscar"
+            android:layout_marginTop="92dp"
             android:drawableEnd="@drawable/ic_search"
             android:drawableTint="#40000000"
-            style="@style/ubicunate_outline_primary_input"/>
+            android:hint="Buscar" />
 
     </FrameLayout>
 

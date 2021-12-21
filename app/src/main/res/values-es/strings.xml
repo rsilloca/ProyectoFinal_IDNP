@@ -1,0 +1,88 @@
+<resources>
+    <string name="app_name">Ubicúnate Perú</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android@studio.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- MENU -->
+
+    <string name="menu_home">Inicio</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_location">Puntos de vacunación</string>
+    <string name="menu_reminder">Agregar recordatorio</string>
+    <string name="menu_statistics">Ver estadísticas</string>
+    <string name="menu_favorites">Puntos favoritos</string>
+    <string name="menu_profile">Mi Perfil</string>
+    <string name="menu_logout">Cerrar sesión</string>
+
+    <!-- END MENU -->
+
+    <!-- CONSTANTS -->
+
+    <string name="preferences_file_key">UbicunatePeru_Preferences</string>
+    <string name="user_token_key">UbicunatePeru_UserToken</string>
+    <string name="department_key">UbicunatePeru_Department</string>
+    <string name="province_key">UbicunatePeru_Province</string>
+    <string name="label_location_key">UbicunatePeru_LabelLocation</string>
+    <string name="latitude_key">UbicunatePeru_Latitude</string>
+    <string name="longitude_key">UbicunatePeru_Longitude</string>
+
+    <!-- END CONSTANTS -->
+
+
+
+    <!-- LABELS -->
+
+    <!-- LOGIN -->
+
+    <string name="title_login">¡Encuentra tu punto de vacunación!</string>
+
+    <string name="email_input_label">Correo electrónico</string>
+    <string name="pwd_input_label">Contraseña</string>
+    <string name="forgot_pwd_label">¿Olvidaste tu contraseña?</string>
+
+    <string name="register_label">¿No tienes una cuenta?</string>
+
+    <string name="log_login_btn">INICIAR SESIÓN</string>
+    <string name="log_register_btn">REGÍSTRATE</string>
+    <string name="free_access_btn">CONTINUAR SIN REGISTRO</string>
+
+    <!-- REGISTER -->
+
+    <string name="name_input_label">Nombres y Apellidos</string>
+    <string name="phone_input_label">Teléfono celular</string>
+
+    <string name="login_label">¿Ya tienes una cuenta?</string>
+
+    <string name="reg_login_btn">INICIA SESIÓN</string>
+    <string name="reg_register_btn">REGISTRARSE</string>
+
+    <!-- HOME -->
+
+    <string name="title_home_toolbar">¡Buenos días!</string>
+    <string name="header_home">Hoy se vacunarán</string>
+    <string name="footer_home">personas</string>
+    <string name="mid_message_home">Y tú, ¿Ya te vacunaste?</string>
+    <string name="help_message_home">Te ayudaremos a encontrar lugares de vacunación cerca de tu ubicación</string>
+    <string name="see_more_home">VER MÁS</string>
+
+    <!-- END LABELS -->
+
+    <!-- PROFILE -->
+
+    <string name="name_profile_hint">Nombres y Apellidos</string>
+    <string name="phone_profile_hint">Teléfono celular</string>
+    <string name="email_profile_hint">Correo electrónico</string>
+    <string name="update_profile_button">ACTUALIZAR</string>
+    <string name="or_option_profile_label">o actualiza tu contraseña</string>
+    <string name="password_profile_hint">Contraseña</string>
+    <string name="new_password_profile_hint">Nueva Contraseña</string>
+    <string name="change_password_profile_button">CAMBIAR CONTRASEÑA</string>
+
+    <!-- END PROFILE -->
+
+</resources>

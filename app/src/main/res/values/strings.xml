@@ -9,15 +9,15 @@
 
     <!-- MENU -->
 
-    <string name="menu_home">Inicio</string>
+    <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
-    <string name="menu_location">Puntos de vacunación</string>
-    <string name="menu_reminder">Agregar recordatorio</string>
-    <string name="menu_statistics">Ver estadísticas</string>
-    <string name="menu_favorites">Puntos favoritos</string>
-    <string name="menu_profile">Mi Perfil</string>
-    <string name="menu_logout">Cerrar sesión</string>
+    <string name="menu_location">Vaccination places</string>
+    <string name="menu_reminder">Add reminder</string>
+    <string name="menu_statistics">See stats</string>
+    <string name="menu_favorites">Favorite places</string>
+    <string name="menu_profile">My profile</string>
+    <string name="menu_logout">Log out</string>
 
     <!-- END MENU -->
 
@@ -39,32 +39,50 @@
 
     <!-- LOGIN -->
 
-    <string name="title_login">¡Encuentra tu punto de vacunación!</string>
+    <string name="title_login">Find your vaccination site!</string>
 
-    <string name="email_input_label">Correo electrónico</string>
-    <string name="pwd_input_label">Contraseña</string>
-    <string name="forgot_pwd_label">¿Olvidaste tu contraseña?</string>
+    <string name="email_input_label">E-Mail</string>
+    <string name="pwd_input_label">Password</string>
+    <string name="forgot_pwd_label">Did you forget your password?</string>
 
-    <string name="register_label">¿No tienes una cuenta?</string>
+    <string name="register_label">You do not have an account?</string>
 
-    <string name="log_login_btn">INICIAR SESIÓN</string>
-    <string name="log_register_btn">REGÍSTRATE</string>
-    <string name="free_access_btn">CONTINUAR SIN REGISTRO</string>
+    <string name="log_login_btn">LOG IN</string>
+    <string name="log_register_btn">SIGN IN</string>
+    <string name="free_access_btn">CONTINUE WITHOUT REGISTRATION</string>
 
     <!-- REGISTER -->
 
-    <string name="name_input_label">Nombres y Apellidos</string>
-    <string name="phone_input_label">Teléfono celular</string>
+    <string name="name_input_label">Full Names</string>
+    <string name="phone_input_label">Phone</string>
 
-    <string name="login_label">¿Ya tienes una cuenta?</string>
+    <string name="login_label">Do you already have an account?</string>
 
-    <string name="reg_login_btn">INICIA SESIÓN</string>
-    <string name="reg_register_btn">REGISTRARSE</string>
+    <string name="reg_login_btn">LOG IN</string>
+    <string name="reg_register_btn">SIGN IN</string>
     
     <!-- HOME -->
     
-    <string name="title_home_toolbar">¡Buenos días!</string>
+    <string name="title_home_toolbar">Good Morning!</string>
+    <string name="header_home">Today</string>
+    <string name="footer_home">people will be vaccinated</string>
+    <string name="mid_message_home">And you, have you already vaccinated?</string>
+    <string name="help_message_home">We will help you find vaccination sites near your location</string>
+    <string name="see_more_home">SEE MORE</string>
 
     <!-- END LABELS -->
+
+    <!-- PROFILE -->
+
+    <string name="name_profile_hint">Full Names</string>
+    <string name="phone_profile_hint">Phone</string>
+    <string name="email_profile_hint">E-Mail</string>
+    <string name="update_profile_button">UPDATE</string>
+    <string name="or_option_profile_label">or update your password</string>
+    <string name="password_profile_hint">Password</string>
+    <string name="new_password_profile_hint">New Password</string>
+    <string name="change_password_profile_button">CHANGE PASSWORD</string>
+
+    <!-- END PROFILE -->
 
 </resources>

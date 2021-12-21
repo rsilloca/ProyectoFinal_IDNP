@@ -43,17 +43,17 @@
                 android:id="@+id/title_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/icon_card"
                 android:fontFamily="@font/nunito_extra_bold"
-                android:text="CERCADO (18 - 28 años)"
-                android:layout_toLeftOf="@id/icon_card"/>
+                android:text="CERCADO (18 - 28 años)" />
 
             <TextView
                 android:id="@+id/subtitle_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Estadio de la UNSA"
                 android:layout_below="@id/title_card"
-                android:layout_toLeftOf="@id/icon_card"/>
+                android:layout_toLeftOf="@id/icon_card"
+                android:text="Estadio de la UNSA" />
 
         </RelativeLayout>
 

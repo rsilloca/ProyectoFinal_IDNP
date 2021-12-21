@@ -21,9 +21,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:text="Hoy se vacunarán"
-                android:fontFamily="@font/nunito_extra_bold"/>
+                android:fontFamily="@font/nunito_extra_bold"
+                android:text="@string/header_home"
+                android:textAlignment="center" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -37,35 +37,35 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:text="personas"
-                android:fontFamily="@font/nunito_extra_bold"/>
+                android:fontFamily="@font/nunito_extra_bold"
+                android:text="@string/footer_home"
+                android:textAlignment="center" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:textAlignment="center"
-                android:text="Y tú, ¿ya te vacunaste?"
                 android:fontFamily="@font/nunito_extra_bold"
-                android:textColor="@color/primary"/>
+                android:text="@string/mid_message_home"
+                android:textAlignment="center"
+                android:textColor="@color/primary" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="32dp"
-                android:textAlignment="center"
-                android:text="Te ayudaremos a encontrar puntos de vacunación cerca de tu ubicación"
-                android:fontFamily="@font/nunito"/>
+                android:fontFamily="@font/nunito"
+                android:text="@string/help_message_home"
+                android:textAlignment="center" />
 
             <Button
                 android:id="@+id/see_more_home"
+                style="@style/ubicunate_flat_primary_button"
                 android:layout_width="250dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="16dp"
-                android:text="VER MÁS"
-                style="@style/ubicunate_flat_primary_button"/>
+                android:text="@string/see_more_home" />
 
         </LinearLayout>
 

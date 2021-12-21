@@ -42,9 +42,8 @@ dependencies {
     implementation "androidx.activity:activity-ktx:1.4.0"
     //Room Components
     implementation "androidx.room:room-ktx:2.3.0"
-    implementation 'com.google.firebase:firebase-auth-ktx:20.0.4'
     kapt "androidx.room:room-compiler:2.3.0"
-    androidTestImplementation "androidx.room:room-testing:2.3.0"
+    androidTestImplementation "androidx.room:room-testing:2.3."
     //Firebase
     implementation 'com.google.firebase:firebase-auth:21.0.1'
     implementation 'com.google.firebase:firebase-firestore-ktx:24.0.0'
