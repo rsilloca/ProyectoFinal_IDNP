@@ -15,4 +15,14 @@
     <color name="extra">#F2D0A9</color>
 
     <!-- END THEME COLORS -->
+
+    <color name="blue01">#FF677DD5</color>
+    <color name="blue02">#101A57</color>
+    <color name="color01">#BA7777</color>
+    <color name="color02">#5286AF</color>
+    <color name="color03">#4A652B</color>
+    <color name="color04">#3E8780</color>
+    <color name="color05">#78394F</color>
+    <color name="color06">#F3D7AD</color>
+    <color name="color07">#9E3F22</color>
 </resources>

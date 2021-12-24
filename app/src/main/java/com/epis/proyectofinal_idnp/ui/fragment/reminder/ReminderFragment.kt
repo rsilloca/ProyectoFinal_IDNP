@@ -61,8 +61,8 @@ class ReminderFragment : Fragment() {
         btnAddReminder.setOnClickListener {
             val startStr = "${dateReminder.year}-${dateReminder.month + 1}-${dateReminder.date} ${dpTime.hour}:${dpTime.minute}:00"
             val endStr = "${dateReminder.year}-${dateReminder.month + 1}-${dateReminder.date} ${dpTime.hour + 2}:${dpTime.minute}:00"
-            val tsStart = Timestamp.valueOf(startStr)
-            val tsEnd = Timestamp.valueOf(endStr)
+            val tsStart = Timestamp.valueOf(startStr.toString())
+            val tsEnd = Timestamp.valueOf(endStr.toString())
             val eventIntent = Intent(Intent.ACTION_INSERT)
             eventIntent.data = CalendarContract.Events.CONTENT_URI
             eventIntent.putExtra(CalendarContract.Events.TITLE, "Vacunación")

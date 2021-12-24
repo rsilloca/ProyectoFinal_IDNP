@@ -28,7 +28,13 @@
                 android:drawableEnd="@drawable/ic_arrow_drop_down"
                 style="@style/ubicunate_outline_primary_input"/>
 
-            
+            <RelativeLayout
+                android:id="@+id/barChart"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="30dp"/>
 
         </LinearLayout>
 
@@ -66,6 +72,8 @@
                 android:text="Averigua cuántos peruanos planean vacunarse"
                 android:fontFamily="@font/nunito"
                 android:textColor="@color/white"/>
+
+
 
         </LinearLayout>
 

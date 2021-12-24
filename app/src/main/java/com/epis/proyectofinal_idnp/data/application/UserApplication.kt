@@ -1,4 +1,4 @@
-package com.epis.proyectofinal_idnp.viewmodel
+package com.epis.proyectofinal_idnp.data.application
 
 import android.app.Application
 import com.epis.proyectofinal_idnp.data.DatabaseConfig
